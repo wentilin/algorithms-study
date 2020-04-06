@@ -128,8 +128,6 @@ class LRUCache {
             storage[key] = node
         }
         
-        print("cache:\(linkedCache)")
-        
         _count_ += 1
     }
 
