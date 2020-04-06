@@ -10,13 +10,15 @@ import Foundation
 
 let cache = LRUCache(2)
 
-cache.put(1, 10)
-cache.put(2, 11)
-cache.put(3, 12)
+print(cache.get(2))
+print(cache.get(2))
 
-cache.get(2)
-
-cache.put(4, 13)
+cache.put(2, 6)
+print(cache.get(1))
+cache.put(1, 5)
+cache.put(1, 2)
+print(cache.get(1))
+print(cache.get(2))
 
 print(cache)
 

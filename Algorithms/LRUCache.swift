@@ -115,20 +115,20 @@ class LRUCache {
     }
     
     func put(_ key: Int, _ value: Int) {
-        if _count_ >= capacity {
-            remove()
-        }
-
         if let node = storage[key] {
             node.value = value
             linkedCache.moveNodeToHead(node)
         } else {
+            if _count_ >= capacity {
+                remove()
+            }
+            
             let node = _DoubleLinkedNode(key: key, value: value)
             linkedCache.addNode(node)
             storage[key] = node
+            
+            _count_ += 1
         }
-        
-        _count_ += 1
     }
 
     private func remove() {
