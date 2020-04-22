@@ -25,11 +25,11 @@ func indexOfArryNxM(_ array: [[Int]], target: Int) -> (Int, Int)? {
     var row: Int = rowCount
     var column: Int = 0
     
-    while row > 0 || column < columnCount {
+    while row > 0 && column < columnCount {
         let item = array[row][column]
         if item == target {
             return (row, column)
-        } else if item < target {
+        } else if item > target {
             row -= 1
         } else {
             column += 1
