@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		542CA0CD244E8C38005F43F6 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542CA0CC244E8C38005F43F6 /* Search.swift */; };
 		542E0B52244D523200003C1D /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E0B51244D523200003C1D /* Queue.swift */; };
 		D755B6B324386818007F88A5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755B6B224386818007F88A5 /* main.swift */; };
 		D755B6BA2438686C007F88A5 /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755B6B92438686C007F88A5 /* LRUCache.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		542CA0CC244E8C38005F43F6 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		542E0B51244D523200003C1D /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		D755B6AF24386818007F88A5 /* Algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithms; sourceTree = BUILT_PRODUCTS_DIR; };
 		D755B6B224386818007F88A5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				D755B6B224386818007F88A5 /* main.swift */,
 				D755B6B92438686C007F88A5 /* LRUCache.swift */,
 				542E0B51244D523200003C1D /* Queue.swift */,
+				542CA0CC244E8C38005F43F6 /* Search.swift */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -127,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D755B6BA2438686C007F88A5 /* LRUCache.swift in Sources */,
+				542CA0CD244E8C38005F43F6 /* Search.swift in Sources */,
 				542E0B52244D523200003C1D /* Queue.swift in Sources */,
 				D755B6B324386818007F88A5 /* main.swift in Sources */,
 			);
@@ -252,7 +256,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4EG25ZT9T6;
+				DEVELOPMENT_TEAM = VHQ84TLCUA;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -263,7 +267,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4EG25ZT9T6;
+				DEVELOPMENT_TEAM = VHQ84TLCUA;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

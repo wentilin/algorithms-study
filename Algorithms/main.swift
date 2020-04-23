@@ -22,3 +22,17 @@ print(cache.get(2))
 
 print(cache)
 
+
+print("---------------------------------")
+var arr: [[Int]] = []
+
+for i in 0..<4 {
+    arr.append([])
+    for j in i..<(i+7) {
+        arr[i].append(j)
+    }
+}
+
+print(arr)
+
+print(search_nxm(arr, number: 6))
