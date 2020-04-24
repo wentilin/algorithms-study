@@ -35,4 +35,5 @@ for i in 0..<4 {
 
 print(arr)
 
-print(search_nxm(arr, number: 6))
+print(search_nxm(arr, number: 4))
+print(indexOfArryNxM(arr, target: 4))
