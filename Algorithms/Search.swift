@@ -2,12 +2,17 @@
 //  Search.swift
 //  Algorithms
 //
+<<<<<<< HEAD
 //  Created by linwenhu on 2020/4/21.
+=======
+//  Created by wentilin on 2020/4/22.
+>>>>>>> c202598c77cdaaf87ed8d246431d827c35d74200
 //  Copyright © 2020 wentilin. All rights reserved.
 //
 
 import Foundation
 
+<<<<<<< HEAD
 /*
  * 查找nxm数组
  * 数组左向右递增，上向下增长
@@ -79,6 +84,33 @@ private func _searchDiagonal(arr: inout [[Int]], area: (i: Int, j: Int, count: I
         let cur = arr[i+k][j+k]
         if cur >= number {
             return (i+k, j+k)
+=======
+func findNxM(_ array: [[Int]], target: Int) -> Bool {
+    if let _ = indexOfArryNxM(array, target: target) {
+        return true
+    }
+    
+    return false
+}
+
+func indexOfArryNxM(_ array: [[Int]], target: Int) -> (Int, Int)? {
+    guard array.count > 0 else { return nil }
+    
+    let rowCount = array.count
+    let columnCount = array[0].count
+    
+    var row: Int = rowCount
+    var column: Int = 0
+    
+    while row > 0 && column < columnCount {
+        let item = array[row][column]
+        if item == target {
+            return (row, column)
+        } else if item > target {
+            row -= 1
+        } else {
+            column += 1
+>>>>>>> c202598c77cdaaf87ed8d246431d827c35d74200
         }
     }
     

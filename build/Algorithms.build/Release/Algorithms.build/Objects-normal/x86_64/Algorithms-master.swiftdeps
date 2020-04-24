@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)"
+options: "8be02ef7cdb4c0df453d2ef0b0e9613f"
+build_time: [1586791255, 297088000]
+inputs:
+  "/Users/wentilin/Desktop/Demo/Algorithms/Algorithms/LRUCache.swift": [9223372036, 854775807]
+  "/Users/wentilin/Desktop/Demo/Algorithms/Algorithms/main.swift": [9223372036, 854775807]

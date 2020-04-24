@@ -11,6 +11,7 @@
 		542E0B52244D523200003C1D /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E0B51244D523200003C1D /* Queue.swift */; };
 		D755B6B324386818007F88A5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755B6B224386818007F88A5 /* main.swift */; };
 		D755B6BA2438686C007F88A5 /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755B6B92438686C007F88A5 /* LRUCache.swift */; };
+		D77CCB3424508B9500D1DEC9 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77CCB3324508B9500D1DEC9 /* Search.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,7 @@
 		D755B6AF24386818007F88A5 /* Algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithms; sourceTree = BUILT_PRODUCTS_DIR; };
 		D755B6B224386818007F88A5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D755B6B92438686C007F88A5 /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
+		D77CCB3324508B9500D1DEC9 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +68,11 @@
 				D755B6B224386818007F88A5 /* main.swift */,
 				D755B6B92438686C007F88A5 /* LRUCache.swift */,
 				542E0B51244D523200003C1D /* Queue.swift */,
+<<<<<<< HEAD
 				542CA0CC244E8C38005F43F6 /* Search.swift */,
+=======
+				D77CCB3324508B9500D1DEC9 /* Search.swift */,
+>>>>>>> c202598c77cdaaf87ed8d246431d827c35d74200
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -130,7 +136,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D755B6BA2438686C007F88A5 /* LRUCache.swift in Sources */,
+<<<<<<< HEAD
 				542CA0CD244E8C38005F43F6 /* Search.swift in Sources */,
+=======
+				D77CCB3424508B9500D1DEC9 /* Search.swift in Sources */,
+>>>>>>> c202598c77cdaaf87ed8d246431d827c35d74200
 				542E0B52244D523200003C1D /* Queue.swift in Sources */,
 				D755B6B324386818007F88A5 /* main.swift in Sources */,
 			);
