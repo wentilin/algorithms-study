@@ -9,6 +9,7 @@
 import Foundation
 
 /*
+ * 方法一
  * 查找nxm数组
  * 数组左向右递增，上向下增长
  */
@@ -93,6 +94,11 @@ func findNxM(_ array: [[Int]], target: Int) -> Bool {
     return false
 }
 
+/*
+* 方法一
+* 查找nxm数组
+* 数组左向右递增，上向下增长
+*/
 func indexOfArryNxM(_ array: [[Int]], target: Int) -> (Int, Int)? {
     guard array.count > 0 else { return nil }
     
@@ -114,4 +120,30 @@ func indexOfArryNxM(_ array: [[Int]], target: Int) -> (Int, Int)? {
     }
     
     return nil
+}
+
+/*
+ * 查找非递减旋转数组最小值
+ */
+func minNumberInRotateArray(_ array: [Int]) -> Int {
+    if array.isEmpty {
+        return 0
+    }
+    
+    var lo = 0
+    var hi = array.count - 1
+    var mid = 0
+    
+    while lo < hi {
+        mid = lo + (hi - lo) / 2
+        if array[mid] > array[hi] {
+            lo = mid + 1
+        } else if array[mid] == array[hi] {
+            hi -= 1
+        } else {
+            hi = mid
+        }
+    }
+    
+    return array[lo]
 }

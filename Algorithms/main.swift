@@ -37,3 +37,4 @@ print(arr)
 
 print(search_nxm(arr, number: 4))
 print(indexOfArryNxM(arr, target: 4))
+print(minNumberInRotateArray([3, 4, 2, 3]))
