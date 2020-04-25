@@ -20,6 +20,6 @@ func rectCoverCount(for target: Int) -> Int {
     if target <= 2 {
         return target
     } else {
-        return rectRecoverCount(for: target - 1) + rectRecoverCount(for: target - 2)
+        return rectCoverCount(for: target - 1) + rectCoverCount(for: target - 2)
     }
 }
