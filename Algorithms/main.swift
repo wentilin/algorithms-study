@@ -10,6 +10,7 @@ import Foundation
 
 let cache = LRUCache(2)
 
+print("LURCace start")
 print(cache.get(2))
 print(cache.get(2))
 
@@ -22,8 +23,9 @@ print(cache.get(2))
 
 print(cache)
 
+print("LURCace end")
 
-print("---------------------------------")
+print("find index in nxm array-----------start")
 var arr: [[Int]] = []
 
 for i in 0..<4 {
@@ -37,11 +39,22 @@ print(arr)
 
 print(search_nxm(arr, number: 4))
 print(indexOfArryNxM(arr, target: 4))
-print(minNumberInRotateArray([3, 4, 2, 3]))
+
+print("find index in nxm array-----------end")
+
+print("minNumberInRotateArray:\(minNumberInRotateArray([3, 4, 2, 3]))")
 
 let moneyMaps: [MoneyMap] = [.init(kind: 1, count: 5),
                              .init(kind: 5, count: 2),
                              .init(kind: 10, count: 2),
                              .init(kind: 50, count: 3),
                              .init(kind: 100, count: 5)]
-print(GreedyMoney.solve(money: 456, moneyMaps: moneyMaps))
+print("GreedyMoney:\(GreedyMoney.solve(money: 456, moneyMaps: moneyMaps))")
+
+let triangle = [[2],
+               [3,4],
+              [6,5,7],
+             [4,1,8,3]]
+print("TriangleMinPath:\(TriangleMinPath.minuteTotal(triangle))")
+                     
+print("MaxSumOfSubArray:\(MaxSumOfSubArray.solve(arr: [-2,1,-3,4,-1,2,1,-5,4]) ?? Int.min)")

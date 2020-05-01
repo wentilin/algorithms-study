@@ -95,7 +95,7 @@ func findNxM(_ array: [[Int]], target: Int) -> Bool {
 }
 
 /*
-* 方法一
+* 方法二
 * 查找nxm数组
 * 数组左向右递增，上向下增长
 */
