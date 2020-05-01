@@ -56,6 +56,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D7150AA9245C611D00849E70 /* DynamicProgramming */ = {
+			isa = PBXGroup;
+			children = (
+				D7150AA3245BE23500849E70 /* TriangleMinPath.swift */,
+				D7150AA5245C020B00849E70 /* MaxSumOfSubArray.swift */,
+				D7150AA7245C586F00849E70 /* RobotSearchPath.swift */,
+			);
+			path = DynamicProgramming;
+			sourceTree = "<group>";
+		};
 		D755B6A624386818007F88A5 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +85,7 @@
 		D755B6B124386818007F88A5 /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				D7150AA9245C611D00849E70 /* DynamicProgramming */,
 				D755B6B224386818007F88A5 /* main.swift */,
 				D755B6B92438686C007F88A5 /* LRUCache.swift */,
 				542E0B51244D523200003C1D /* Queue.swift */,
@@ -82,9 +93,6 @@
 				D799F56F245354A5009CD99E /* JumpFloor.swift */,
 				D799F57124542361009CD99E /* RectRecover.swift */,
 				D7150AA1245BC5AF00849E70 /* GreedyMoney.swift */,
-				D7150AA3245BE23500849E70 /* TriangleMinPath.swift */,
-				D7150AA5245C020B00849E70 /* MaxSumOfSubArray.swift */,
-				D7150AA7245C586F00849E70 /* RobotSearchPath.swift */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
