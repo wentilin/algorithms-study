@@ -58,3 +58,5 @@ let triangle = [[2],
 print("TriangleMinPath:\(TriangleMinPath.minuteTotal(triangle))")
                      
 print("MaxSumOfSubArray:\(MaxSumOfSubArray.solve(arr: [-2,1,-3,4,-1,2,1,-5,4]) ?? Int.min)")
+
+print("RobotSearchPath:\(RobotSearchPath.pathKindsOfRobot(m: 7, n: 3))")

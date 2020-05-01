@@ -12,6 +12,7 @@
 		D7150AA2245BC5AF00849E70 /* GreedyMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150AA1245BC5AF00849E70 /* GreedyMoney.swift */; };
 		D7150AA4245BE23500849E70 /* TriangleMinPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150AA3245BE23500849E70 /* TriangleMinPath.swift */; };
 		D7150AA6245C020B00849E70 /* MaxSumOfSubArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150AA5245C020B00849E70 /* MaxSumOfSubArray.swift */; };
+		D7150AA8245C586F00849E70 /* RobotSearchPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150AA7245C586F00849E70 /* RobotSearchPath.swift */; };
 		D755B6B324386818007F88A5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755B6B224386818007F88A5 /* main.swift */; };
 		D755B6BA2438686C007F88A5 /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755B6B92438686C007F88A5 /* LRUCache.swift */; };
 		D799F570245354A5009CD99E /* JumpFloor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D799F56F245354A5009CD99E /* JumpFloor.swift */; };
@@ -36,6 +37,7 @@
 		D7150AA1245BC5AF00849E70 /* GreedyMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreedyMoney.swift; sourceTree = "<group>"; };
 		D7150AA3245BE23500849E70 /* TriangleMinPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleMinPath.swift; sourceTree = "<group>"; };
 		D7150AA5245C020B00849E70 /* MaxSumOfSubArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxSumOfSubArray.swift; sourceTree = "<group>"; };
+		D7150AA7245C586F00849E70 /* RobotSearchPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotSearchPath.swift; sourceTree = "<group>"; };
 		D755B6AF24386818007F88A5 /* Algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithms; sourceTree = BUILT_PRODUCTS_DIR; };
 		D755B6B224386818007F88A5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D755B6B92438686C007F88A5 /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				D7150AA1245BC5AF00849E70 /* GreedyMoney.swift */,
 				D7150AA3245BE23500849E70 /* TriangleMinPath.swift */,
 				D7150AA5245C020B00849E70 /* MaxSumOfSubArray.swift */,
+				D7150AA7245C586F00849E70 /* RobotSearchPath.swift */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7150AA6245C020B00849E70 /* MaxSumOfSubArray.swift in Sources */,
+				D7150AA8245C586F00849E70 /* RobotSearchPath.swift in Sources */,
 				D799F57224542361009CD99E /* RectRecover.swift in Sources */,
 				D755B6BA2438686C007F88A5 /* LRUCache.swift in Sources */,
 				5495C52724528F13002A1DF5 /* Search.swift in Sources */,
