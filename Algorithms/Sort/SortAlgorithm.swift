@@ -45,7 +45,7 @@ class SortAlgorithm {
             (array[i], array[j]) = (array[j], array[i])
         }
         
-        // swap
+        // 把基准值插入到合适位置
         (array[low], array[j]) = (array[j], array[low])
         
         quickSort(array: &array, low: low, high: j-1)
