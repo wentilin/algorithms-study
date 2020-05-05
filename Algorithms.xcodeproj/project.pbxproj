@@ -16,6 +16,7 @@
 		D7150AAC245D768E00849E70 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150AAB245D768E00849E70 /* BinarySearch.swift */; };
 		D7150AAF245E5EE700849E70 /* SortAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150AAE245E5EE700849E70 /* SortAlgorithm.swift */; };
 		D7150ACD246109E400849E70 /* DuplicateNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150ACC246109E400849E70 /* DuplicateNumber.swift */; };
+		D7150AEC2461B04500849E70 /* PowAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150AEB2461B04500849E70 /* PowAlgorithm.swift */; };
 		D755B6B324386818007F88A5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755B6B224386818007F88A5 /* main.swift */; };
 		D755B6BA2438686C007F88A5 /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755B6B92438686C007F88A5 /* LRUCache.swift */; };
 		D799F570245354A5009CD99E /* JumpFloor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D799F56F245354A5009CD99E /* JumpFloor.swift */; };
@@ -44,6 +45,7 @@
 		D7150AAB245D768E00849E70 /* BinarySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 		D7150AAE245E5EE700849E70 /* SortAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAlgorithm.swift; sourceTree = "<group>"; };
 		D7150ACC246109E400849E70 /* DuplicateNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuplicateNumber.swift; sourceTree = "<group>"; };
+		D7150AEB2461B04500849E70 /* PowAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowAlgorithm.swift; sourceTree = "<group>"; };
 		D755B6AF24386818007F88A5 /* Algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithms; sourceTree = BUILT_PRODUCTS_DIR; };
 		D755B6B224386818007F88A5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D755B6B92438686C007F88A5 /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
@@ -108,7 +110,6 @@
 		D755B6B124386818007F88A5 /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
-				D7150ACC246109E400849E70 /* DuplicateNumber.swift */,
 				D7150AAD245E5ED500849E70 /* Sort */,
 				D7150AAA245D767900849E70 /* Search */,
 				D7150AA9245C611D00849E70 /* DynamicProgramming */,
@@ -118,6 +119,8 @@
 				D799F56F245354A5009CD99E /* JumpFloor.swift */,
 				D799F57124542361009CD99E /* RectRecover.swift */,
 				D7150AA1245BC5AF00849E70 /* GreedyMoney.swift */,
+				D7150ACC246109E400849E70 /* DuplicateNumber.swift */,
+				D7150AEB2461B04500849E70 /* PowAlgorithm.swift */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				D799F57224542361009CD99E /* RectRecover.swift in Sources */,
 				D7150AAC245D768E00849E70 /* BinarySearch.swift in Sources */,
 				D755B6BA2438686C007F88A5 /* LRUCache.swift in Sources */,
+				D7150AEC2461B04500849E70 /* PowAlgorithm.swift in Sources */,
 				5495C52724528F13002A1DF5 /* Search.swift in Sources */,
 				D7150ACD246109E400849E70 /* DuplicateNumber.swift in Sources */,
 				542E0B52244D523200003C1D /* Queue.swift in Sources */,
