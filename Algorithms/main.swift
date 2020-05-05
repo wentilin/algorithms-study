@@ -66,3 +66,5 @@ print("BinarySearch: \(SearchAlgorithm.binarySearch(array: [1,2,3,4,5,6,7,8,9,10
 var arrayToSort: [Int] = [10, 3, 5, 6, 2, 7, 1, 4, 8, 9]
 SortAlgorithm.quickSort(array: &arrayToSort, low: 0, high: arrayToSort.count-1)
 print("QuickSort: \(arrayToSort)")
+
+print("DuplicateNumber: \(DuplicateNumber.duplicateNumber(at: [0, 3, 2, 4, 1, 2]) ?? -1)")
