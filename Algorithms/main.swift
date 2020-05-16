@@ -73,12 +73,5 @@ let base: Double = -2
 let exponent: Int = -3
 print("PowAlgorithm.pow(\(base), \(exponent))=\(PowAlgorithm.pow(base: base, exponent: exponent))")
 
-let node1 = ListNode(val: 5)
-let node2 = ListNode(val: 4, next: node1)
-let node3 = ListNode(val: 3, next: node2)
-let node4 = ListNode(val: 2, next: node3)
-let node5 = ListNode(val: 1, next: node4)
-print("Kth node to tail: \(ListNodeAlgorithm.findKthNodeToTail(head: node5, kthToTail: 3))")
 
-print("reverseNode: \(ListNodeAlgorithm.reverseNode(node5))")
-
+ListNodeTests.startTest()
