@@ -78,5 +78,7 @@ let node2 = ListNode(val: 4, next: node1)
 let node3 = ListNode(val: 3, next: node2)
 let node4 = ListNode(val: 2, next: node3)
 let node5 = ListNode(val: 1, next: node4)
-print("Kth node to tail: \(FindKthNodeToTail.solve(head: node5, kthToTail: 3))")
+print("Kth node to tail: \(ListNodeAlgorithm.findKthNodeToTail(head: node5, kthToTail: 3))")
+
+print("reverseNode: \(ListNodeAlgorithm.reverseNode(node5))")
 
