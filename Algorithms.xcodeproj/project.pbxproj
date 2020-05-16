@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		542E0B52244D523200003C1D /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E0B51244D523200003C1D /* Queue.swift */; };
 		5495C52724528F13002A1DF5 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5495C52624528F13002A1DF5 /* Search.swift */; };
+		D703ECC5246FB69D003D4ABA /* FindKthNodeToTail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703ECC4246FB69D003D4ABA /* FindKthNodeToTail.swift */; };
+		D703ECC8246FB712003D4ABA /* ListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703ECC7246FB712003D4ABA /* ListNode.swift */; };
 		D7150AA2245BC5AF00849E70 /* GreedyMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150AA1245BC5AF00849E70 /* GreedyMoney.swift */; };
 		D7150AA4245BE23500849E70 /* TriangleMinPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150AA3245BE23500849E70 /* TriangleMinPath.swift */; };
 		D7150AA6245C020B00849E70 /* MaxSumOfSubArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150AA5245C020B00849E70 /* MaxSumOfSubArray.swift */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		542E0B51244D523200003C1D /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		5495C52624528F13002A1DF5 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		D703ECC4246FB69D003D4ABA /* FindKthNodeToTail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindKthNodeToTail.swift; sourceTree = "<group>"; };
+		D703ECC7246FB712003D4ABA /* ListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNode.swift; sourceTree = "<group>"; };
 		D7150AA1245BC5AF00849E70 /* GreedyMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreedyMoney.swift; sourceTree = "<group>"; };
 		D7150AA3245BE23500849E70 /* TriangleMinPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleMinPath.swift; sourceTree = "<group>"; };
 		D7150AA5245C020B00849E70 /* MaxSumOfSubArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxSumOfSubArray.swift; sourceTree = "<group>"; };
@@ -64,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D703ECC6246FB70A003D4ABA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D703ECC7246FB712003D4ABA /* ListNode.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		D7150AA9245C611D00849E70 /* DynamicProgramming */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +122,7 @@
 		D755B6B124386818007F88A5 /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				D703ECC6246FB70A003D4ABA /* Common */,
 				D7150AAD245E5ED500849E70 /* Sort */,
 				D7150AAA245D767900849E70 /* Search */,
 				D7150AA9245C611D00849E70 /* DynamicProgramming */,
@@ -121,6 +134,7 @@
 				D7150AA1245BC5AF00849E70 /* GreedyMoney.swift */,
 				D7150ACC246109E400849E70 /* DuplicateNumber.swift */,
 				D7150AEB2461B04500849E70 /* PowAlgorithm.swift */,
+				D703ECC4246FB69D003D4ABA /* FindKthNodeToTail.swift */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -184,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7150AA6245C020B00849E70 /* MaxSumOfSubArray.swift in Sources */,
+				D703ECC5246FB69D003D4ABA /* FindKthNodeToTail.swift in Sources */,
 				D7150AAF245E5EE700849E70 /* SortAlgorithm.swift in Sources */,
 				D7150AA8245C586F00849E70 /* RobotSearchPath.swift in Sources */,
 				D799F57224542361009CD99E /* RectRecover.swift in Sources */,
@@ -193,6 +208,7 @@
 				5495C52724528F13002A1DF5 /* Search.swift in Sources */,
 				D7150ACD246109E400849E70 /* DuplicateNumber.swift in Sources */,
 				542E0B52244D523200003C1D /* Queue.swift in Sources */,
+				D703ECC8246FB712003D4ABA /* ListNode.swift in Sources */,
 				D799F570245354A5009CD99E /* JumpFloor.swift in Sources */,
 				D755B6B324386818007F88A5 /* main.swift in Sources */,
 				D7150AA2245BC5AF00849E70 /* GreedyMoney.swift in Sources */,
