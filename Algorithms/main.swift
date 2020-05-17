@@ -77,3 +77,5 @@ print("PowAlgorithm.pow(\(base), \(exponent))=\(PowAlgorithm.pow(base: base, exp
 ListNodeTests.startTest()
 
 _TreeTests.testHasSubtree()
+
+_TreeTests.testMirror()

@@ -35,3 +35,18 @@ class TreeAlgorithm {
         }
     }
 }
+
+extension TreeAlgorithm {
+    static func mirror(root: TreeNode?) {
+        if root == nil || (root?.left == nil && root?.right == nil) {
+            return
+        }
+        
+        let tmp = root?.left
+        root?.left = root?.right
+        root?.right = tmp
+        
+        mirror(root: root?.left)
+        mirror(root: root?.right)
+    }
+}

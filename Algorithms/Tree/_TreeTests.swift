@@ -30,4 +30,24 @@ class _TreeTests {
         
         print("has subtree: \(TreeAlgorithm.hasSubTree(root1: root, root2: subroot))")
     }
+    
+    static func testMirror() {
+        let root = TreeNode(value: 0)
+        let left0 = TreeNode(value: 1)
+        let right0 = TreeNode(value: 2)
+        let left1 = TreeNode(value: 3)
+        let right1 = TreeNode(value: 4)
+        let left2 = TreeNode(value: 5)
+        let right2 = TreeNode(value: 6)
+        root.left = left0
+        root.right = right0
+        left0.left = left1
+        left0.right = right1
+        left1.left = left2
+        left1.right = right2
+        
+        TreeAlgorithm.mirror(root: root)
+        
+        print("mirror: \(root)")
+    }
 }
