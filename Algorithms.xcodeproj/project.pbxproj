@@ -12,6 +12,11 @@
 		D703ECC8246FB712003D4ABA /* ListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703ECC7246FB712003D4ABA /* ListNode.swift */; };
 		D703ECCA246FC034003D4ABA /* ListNodeAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703ECC9246FC034003D4ABA /* ListNodeAlgorithm.swift */; };
 		D703ECCD246FE402003D4ABA /* ListNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703ECCC246FE402003D4ABA /* ListNodeTests.swift */; };
+		D703ECD02470ED75003D4ABA /* TreeAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703ECCF2470ED75003D4ABA /* TreeAlgorithm.swift */; };
+		D703ECD22470ED80003D4ABA /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703ECD12470ED80003D4ABA /* TreeNode.swift */; };
+		D703ECD42470EEB4003D4ABA /* _TreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703ECD32470EEB4003D4ABA /* _TreeTests.swift */; };
+		D703ED0C2470FE2C003D4ABA /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = D703ED082470FE10003D4ABA /* Info.plist */; };
+		D703ED0F2470FE70003D4ABA /* AlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703ED0E2470FE70003D4ABA /* AlgorithmTests.swift */; };
 		D7150AA2245BC5AF00849E70 /* GreedyMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150AA1245BC5AF00849E70 /* GreedyMoney.swift */; };
 		D7150AA4245BE23500849E70 /* TriangleMinPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150AA3245BE23500849E70 /* TriangleMinPath.swift */; };
 		D7150AA6245C020B00849E70 /* MaxSumOfSubArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7150AA5245C020B00849E70 /* MaxSumOfSubArray.swift */; };
@@ -44,6 +49,12 @@
 		D703ECC7246FB712003D4ABA /* ListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNode.swift; sourceTree = "<group>"; };
 		D703ECC9246FC034003D4ABA /* ListNodeAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNodeAlgorithm.swift; sourceTree = "<group>"; };
 		D703ECCC246FE402003D4ABA /* ListNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNodeTests.swift; sourceTree = "<group>"; };
+		D703ECCF2470ED75003D4ABA /* TreeAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeAlgorithm.swift; sourceTree = "<group>"; };
+		D703ECD12470ED80003D4ABA /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
+		D703ECD32470EEB4003D4ABA /* _TreeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TreeTests.swift; sourceTree = "<group>"; };
+		D703ED042470FE10003D4ABA /* AlgorithmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorithmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D703ED082470FE10003D4ABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D703ED0E2470FE70003D4ABA /* AlgorithmTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgorithmTests.swift; sourceTree = "<group>"; };
 		D7150AA1245BC5AF00849E70 /* GreedyMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreedyMoney.swift; sourceTree = "<group>"; };
 		D7150AA3245BE23500849E70 /* TriangleMinPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleMinPath.swift; sourceTree = "<group>"; };
 		D7150AA5245C020B00849E70 /* MaxSumOfSubArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxSumOfSubArray.swift; sourceTree = "<group>"; };
@@ -60,6 +71,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D703ED012470FE10003D4ABA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D755B6AC24386818007F88A5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -85,6 +103,25 @@
 				D703ECCC246FE402003D4ABA /* ListNodeTests.swift */,
 			);
 			path = ListNode;
+			sourceTree = "<group>";
+		};
+		D703ECCE2470ED5F003D4ABA /* Tree */ = {
+			isa = PBXGroup;
+			children = (
+				D703ECCF2470ED75003D4ABA /* TreeAlgorithm.swift */,
+				D703ECD12470ED80003D4ABA /* TreeNode.swift */,
+				D703ECD32470EEB4003D4ABA /* _TreeTests.swift */,
+			);
+			path = Tree;
+			sourceTree = "<group>";
+		};
+		D703ED052470FE10003D4ABA /* AlgorithmTests */ = {
+			isa = PBXGroup;
+			children = (
+				D703ED0E2470FE70003D4ABA /* AlgorithmTests.swift */,
+				D703ED082470FE10003D4ABA /* Info.plist */,
+			);
+			path = AlgorithmTests;
 			sourceTree = "<group>";
 		};
 		D7150AA9245C611D00849E70 /* DynamicProgramming */ = {
@@ -118,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				D755B6B124386818007F88A5 /* Algorithms */,
+				D703ED052470FE10003D4ABA /* AlgorithmTests */,
 				D755B6B024386818007F88A5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -126,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				D755B6AF24386818007F88A5 /* Algorithms */,
+				D703ED042470FE10003D4ABA /* AlgorithmTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +172,7 @@
 		D755B6B124386818007F88A5 /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				D703ECCE2470ED5F003D4ABA /* Tree */,
 				D703ECCB246FE3E5003D4ABA /* ListNode */,
 				D703ECC6246FB70A003D4ABA /* Common */,
 				D7150AAD245E5ED500849E70 /* Sort */,
@@ -153,6 +193,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D703ED032470FE10003D4ABA /* AlgorithmTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D703ED092470FE10003D4ABA /* Build configuration list for PBXNativeTarget "AlgorithmTests" */;
+			buildPhases = (
+				D703ED002470FE10003D4ABA /* Sources */,
+				D703ED012470FE10003D4ABA /* Frameworks */,
+				D703ED022470FE10003D4ABA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlgorithmTests;
+			productName = AlgorithmTests;
+			productReference = D703ED042470FE10003D4ABA /* AlgorithmTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D755B6AE24386818007F88A5 /* Algorithms */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D755B6B624386818007F88A5 /* Build configuration list for PBXNativeTarget "Algorithms" */;
@@ -180,6 +237,9 @@
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = wentilin;
 				TargetAttributes = {
+					D703ED032470FE10003D4ABA = {
+						CreatedOnToolsVersion = 11.4;
+					};
 					D755B6AE24386818007F88A5 = {
 						CreatedOnToolsVersion = 11.4;
 					};
@@ -199,11 +259,31 @@
 			projectRoot = "";
 			targets = (
 				D755B6AE24386818007F88A5 /* Algorithms */,
+				D703ED032470FE10003D4ABA /* AlgorithmTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		D703ED022470FE10003D4ABA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		D703ED002470FE10003D4ABA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D703ED0C2470FE2C003D4ABA /* Info.plist in Sources */,
+				D703ED0F2470FE70003D4ABA /* AlgorithmTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D755B6AB24386818007F88A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,6 +303,9 @@
 				D703ECC8246FB712003D4ABA /* ListNode.swift in Sources */,
 				D799F570245354A5009CD99E /* JumpFloor.swift in Sources */,
 				D755B6B324386818007F88A5 /* main.swift in Sources */,
+				D703ECD22470ED80003D4ABA /* TreeNode.swift in Sources */,
+				D703ECD02470ED75003D4ABA /* TreeAlgorithm.swift in Sources */,
+				D703ECD42470EEB4003D4ABA /* _TreeTests.swift in Sources */,
 				D7150AA2245BC5AF00849E70 /* GreedyMoney.swift in Sources */,
 				D7150AA4245BE23500849E70 /* TriangleMinPath.swift in Sources */,
 			);
@@ -231,6 +314,42 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		D703ED0A2470FE10003D4ABA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4EG25ZT9T6;
+				INFOPLIST_FILE = AlgorithmTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wentilin.AlgorithmTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D703ED0B2470FE10003D4ABA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4EG25ZT9T6;
+				INFOPLIST_FILE = AlgorithmTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wentilin.AlgorithmTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		D755B6B424386818007F88A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -369,6 +488,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D703ED092470FE10003D4ABA /* Build configuration list for PBXNativeTarget "AlgorithmTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D703ED0A2470FE10003D4ABA /* Debug */,
+				D703ED0B2470FE10003D4ABA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D755B6AA24386818007F88A5 /* Build configuration list for PBXProject "Algorithms" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
