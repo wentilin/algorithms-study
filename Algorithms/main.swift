@@ -79,3 +79,5 @@ ListNodeTests.startTest()
 _TreeTests.testHasSubtree()
 
 _TreeTests.testMirror()
+
+StackAlgorithm.testMinStack()
