@@ -32,6 +32,20 @@ class _TreeTests {
     }
     
     static func testMirror() {
+        let root = _buildTree()
+        TreeAlgorithm.mirror(root: root)
+        
+        print("mirror: \(root)")
+    }
+    
+    static func testBreathVisit() {
+        let root = _buildTree()
+        let res = TreeAlgorithm.breathVisit(root)
+        
+        print("breath visit: \(res)")
+    }
+    
+    private static func _buildTree() -> TreeNode {
         let root = TreeNode(value: 0)
         let left0 = TreeNode(value: 1)
         let right0 = TreeNode(value: 2)
@@ -46,8 +60,6 @@ class _TreeTests {
         left1.left = left2
         left1.right = right2
         
-        TreeAlgorithm.mirror(root: root)
-        
-        print("mirror: \(root)")
+        return root
     }
 }

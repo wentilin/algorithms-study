@@ -50,3 +50,27 @@ extension TreeAlgorithm {
         mirror(root: root?.right)
     }
 }
+
+extension TreeAlgorithm {
+    static func breathVisit(_ tree: TreeNode?) -> [Int] {
+        guard let t = tree else { return [] }
+        
+        var queue: Queue<TreeNode> = .init()
+        var res: [Int] = []
+        queue.push(t)
+        while !queue.isEmpty {
+            let node = queue.pop()!
+            res.append(node.value)
+            
+            if let left = node.left {
+                queue.push(left)
+            }
+            
+            if let right = node.right {
+                queue.push(right)
+            }
+        }
+        
+        return res
+    }
+}

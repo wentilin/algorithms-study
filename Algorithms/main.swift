@@ -81,3 +81,7 @@ _TreeTests.testHasSubtree()
 _TreeTests.testMirror()
 
 StackAlgorithm.testMinStack()
+
+_TreeTests.testBreathVisit()
+
+QueueTest.testPriorityQueue()
