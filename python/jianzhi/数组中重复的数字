@@ -16,7 +16,8 @@ class Solution1:
         no_dup_dict = {}
         for number in numbers:
             if number in no_dup_dict:
-                duplication.append(number)  # can not do duplication[0]=number
+                # python 2: duplication[0] = number
+                duplication.append(number)
                 return True
             else:
                 no_dup_dict[number] = 1
@@ -33,6 +34,7 @@ class Solution2:
         for i, number in enumerate(numbers):
             while numbers[i] != i:
                 if numbers[numbers[i]] == numbers[i]:
+                    # python 2: duplication[0] = number
                     duplication.append(numbers[i])
                     return True
                 else:
@@ -41,7 +43,7 @@ class Solution2:
 
 
 if __name__ == '__main__':
-    numbers = [2, 3, 1, 0, 2, 5, 3]
+    numbers = [2, 1, 3, 1, 4]
     dup = []
     sol = Solution2()
     has_dup = sol.duplicate(numbers, dup)
