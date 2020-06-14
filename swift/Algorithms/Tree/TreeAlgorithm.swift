@@ -122,8 +122,9 @@ extension TreeAlgorithm {
         
         let nextPath = path + [node.value]
         let sum = pathSum + node.value
-        if sum == target {
+        if sum == target, node.left == nil, node.right == nil {
             allPath.append(nextPath)
+            return
         }
         
         _visitNode(node.left, target: target, path: nextPath, pathSum: sum, allPath: &allPath)
