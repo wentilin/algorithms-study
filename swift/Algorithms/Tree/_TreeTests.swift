@@ -63,3 +63,10 @@ class _TreeTests {
         return root
     }
 }
+
+extension _TreeTests {
+    static func testVerifySquenceOfBST() {
+        let sequence: [Int] = [1, 4, 7, 6, 3, 13, 14, 10, 8]
+        print("VerifySquenceOfBST(\(sequence)):\(TreeAlgorithm.verifySquenceOfBST(sequence))")
+    }
+}

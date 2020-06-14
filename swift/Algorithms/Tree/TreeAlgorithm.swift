@@ -74,3 +74,35 @@ extension TreeAlgorithm {
         return res
     }
 }
+
+extension TreeAlgorithm {
+    /// 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。
+    /// 如果是则输出Yes,否则输出No。
+    /// 假设输入的数组的任意两个数字都互不相同。
+    static func verifySquenceOfBST(_ sequence: [Int]) -> Bool {
+        guard sequence.count > 0 else { return false }
+        
+        return _judegeSequenceOfBST(sequence, left: 0, right: sequence.count-1)
+    }
+    
+    static func _judegeSequenceOfBST(_ sequence: [Int], left: Int, right: Int) -> Bool {
+        if left >= right {
+            return true
+        }
+        
+        let last = sequence[right]
+        var i = left
+        while sequence[i] < last {
+            i += 1
+        }
+        
+        // Must less than right tree
+        for j in i..<right {
+            if last >= sequence[j] {
+                return false
+            }
+        }
+        
+        return _judegeSequenceOfBST(sequence, left: left, right: i-1) && _judegeSequenceOfBST(sequence, left: i, right: right - 1)
+    }
+}
