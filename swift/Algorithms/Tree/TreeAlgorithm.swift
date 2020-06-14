@@ -106,3 +106,27 @@ extension TreeAlgorithm {
         return _judegeSequenceOfBST(sequence, left: left, right: i-1) && _judegeSequenceOfBST(sequence, left: i, right: right - 1)
     }
 }
+
+extension TreeAlgorithm {
+    /// 输入一颗二叉树的根节点和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。
+    /// 路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
+    static func findPath(_ tree: TreeNode, target: Int) -> [[Int]] {
+        var path: [[Int]] = []
+        _visitNode(tree, target: target, path: [], pathSum: 0, allPath: &path)
+        
+        return path
+    }
+    
+    private static func _visitNode(_ node: TreeNode?, target: Int, path: [Int], pathSum: Int, allPath: inout [[Int]]) {
+        guard let node = node else { return }
+        
+        let nextPath = path + [node.value]
+        let sum = pathSum + node.value
+        if sum == target {
+            allPath.append(nextPath)
+        }
+        
+        _visitNode(node.left, target: target, path: nextPath, pathSum: sum, allPath: &allPath)
+        _visitNode(node.right, target: target, path: nextPath, pathSum: sum, allPath: &allPath)
+    }
+}

@@ -87,3 +87,5 @@ _TreeTests.testBreathVisit()
 QueueTest.testPriorityQueue()
 
 _TreeTests.testVerifySquenceOfBST()
+
+_TreeTests.testFindPath()
