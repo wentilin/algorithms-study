@@ -17,7 +17,6 @@ class Solution:
     # time: O(n)
     # space: O(1)
     def delete_duplication(self, pHead):
-        # write code here
         if not pHead or not pHead.next:
             return pHead
 
@@ -42,11 +41,11 @@ if __name__ == '__main__':
     l_2 = ListNode(1)
     l_3 = ListNode(2)
     l_4 = ListNode(2)
-    # l_5 = ListNode(4)
+    l_5 = ListNode(4)
     l_1.next = l_2
     l_2.next = l_3
     l_3.next = l_4
-    # l_4.next = l_5
+    l_4.next = l_5
     res = sol.delete_duplication(l_1)
     while res:
         print(res.val)
