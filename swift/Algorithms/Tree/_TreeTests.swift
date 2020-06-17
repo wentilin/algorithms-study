@@ -51,15 +51,31 @@ class _TreeTests {
         let right0 = TreeNode(value: 2)
         let left1 = TreeNode(value: 3)
         let right1 = TreeNode(value: 4)
-        let left2 = TreeNode(value: 5)
-        let right2 = TreeNode(value: 6)
+        let left2 = TreeNode(value: 2)
+        let right2 = TreeNode(value: 2)
         root.left = left0
         root.right = right0
         left0.left = left1
         left0.right = right1
-        left1.left = left2
-        left1.right = right2
+        right0.left = left2
+        right0.right = right2
         
         return root
+    }
+}
+
+extension _TreeTests {
+    static func testVerifySquenceOfBST() {
+        let sequence: [Int] = [1, 4, 7, 6, 3, 13, 14, 10, 8]
+        print("VerifySquenceOfBST(\(sequence)):\(TreeAlgorithm.verifySquenceOfBST(sequence))")
+    }
+}
+
+extension _TreeTests {
+    static func testFindPath() {
+        let tree = _buildTree()
+        let target = 4
+        let path = TreeAlgorithm.findPath(tree, target: target)
+        print("findPath with target(\(target)):\(path)")
     }
 }

@@ -35,11 +35,6 @@ class Solution:
 
         return start.next
 
-    def print_list(self, res):
-        while res:
-            print(res.val)
-            res = res.next
-
 
 if __name__ == '__main__':
     sol = Solution()

@@ -74,3 +74,60 @@ extension TreeAlgorithm {
         return res
     }
 }
+
+extension TreeAlgorithm {
+    /// 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。
+    /// 如果是则输出Yes,否则输出No。
+    /// 假设输入的数组的任意两个数字都互不相同。
+    static func verifySquenceOfBST(_ sequence: [Int]) -> Bool {
+        guard sequence.count > 0 else { return false }
+        
+        return _judegeSequenceOfBST(sequence, left: 0, right: sequence.count-1)
+    }
+    
+    static func _judegeSequenceOfBST(_ sequence: [Int], left: Int, right: Int) -> Bool {
+        if left >= right {
+            return true
+        }
+        
+        let last = sequence[right]
+        var i = left
+        while sequence[i] < last {
+            i += 1
+        }
+        
+        // Must less than right tree
+        for j in i..<right {
+            if last >= sequence[j] {
+                return false
+            }
+        }
+        
+        return _judegeSequenceOfBST(sequence, left: left, right: i-1) && _judegeSequenceOfBST(sequence, left: i, right: right - 1)
+    }
+}
+
+extension TreeAlgorithm {
+    /// 输入一颗二叉树的根节点和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。
+    /// 路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
+    static func findPath(_ tree: TreeNode, target: Int) -> [[Int]] {
+        var path: [[Int]] = []
+        _visitNode(tree, target: target, path: [], pathSum: 0, allPath: &path)
+        
+        return path
+    }
+    
+    private static func _visitNode(_ node: TreeNode?, target: Int, path: [Int], pathSum: Int, allPath: inout [[Int]]) {
+        guard let node = node else { return }
+        
+        let nextPath = path + [node.value]
+        let sum = pathSum + node.value
+        if sum == target, node.left == nil, node.right == nil {
+            allPath.append(nextPath)
+            return
+        }
+        
+        _visitNode(node.left, target: target, path: nextPath, pathSum: sum, allPath: &allPath)
+        _visitNode(node.right, target: target, path: nextPath, pathSum: sum, allPath: &allPath)
+    }
+}
