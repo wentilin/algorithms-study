@@ -53,7 +53,9 @@ def print_tree_level(root):
 
 
 class Solution:
-    # 返回镜像树的根节点
+    # 二叉树 递归
+    # time: O(n) [T(n)=2*T(n/2)]
+    # space: O(n) [每个点都要存下来]
     def Mirror(self, root):
         if not root:
             return root

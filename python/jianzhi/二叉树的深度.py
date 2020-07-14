@@ -15,7 +15,7 @@ class Solution:
     # 二叉树 递归
     # time: O(n) [T(n)=2*T(n/2)]
     # space: O(n) [最坏时树为链表, 最好O(logn)]
-    # 递归算法的空间复杂度=递归深度N*每次递归所要的辅助空间
+    # 递归算法的空间复杂度=递归深度*每次递归所要的辅助空间
     def TreeDepth(self, pRoot):
         if not pRoot:
             return 0
