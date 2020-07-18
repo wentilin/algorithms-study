@@ -91,3 +91,5 @@ _TreeTests.testVerifySquenceOfBST()
 _TreeTests.testFindPath()
 
 ListNodeTests.testCloneRandomListNode()
+
+print("Add(5, 70)=\(SomeAlgorithms.add(5, 70))")
