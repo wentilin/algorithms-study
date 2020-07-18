@@ -89,3 +89,5 @@ QueueTest.testPriorityQueue()
 _TreeTests.testVerifySquenceOfBST()
 
 _TreeTests.testFindPath()
+
+ListNodeTests.testCloneRandomListNode()

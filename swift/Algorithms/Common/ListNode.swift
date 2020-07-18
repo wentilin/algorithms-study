@@ -30,3 +30,15 @@ extension ListNode: CustomStringConvertible {
         return des
     }
 }
+
+class RandomListNode: NSObject {
+    var label: String
+    var next: RandomListNode?
+    var random: RandomListNode?
+    
+    init(_ label: String, next: RandomListNode? = nil, random: RandomListNode? = nil) {
+        self.label = label
+        self.next = next
+        self.random = random
+    }
+}
