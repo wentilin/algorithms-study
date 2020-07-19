@@ -66,3 +66,32 @@ extension SomeAlgorithms {
         return ((target >> index) & 1) == 1
     }
 }
+
+extension SomeAlgorithms {
+    /*
+    给定一个数组A[0,1,...,n-1],请构建一个数组B[0,1,...,n-1],
+    其中B中的元素B[i]=A[0]*A[1]*...*A[i-1]*A[i+1]*...*A[n-1]。
+    不能使用除法。（注意：规定B[0] = A[1] * A[2] * ... * A[n-1]，
+    B[n-1] = A[0] * A[1] * ... * A[n-2];）
+    解法：
+        左边：B[i] = A[0]*A[1]*...*A[i-1]
+        右边：A[i+1]*A[i+2]*...*A[n-1]
+    */
+    public static func multiply(A: [Int]) -> [Int] {
+        var B: [Int] = Array(repeating: 0, count: A.count);
+        var res = 1;
+        // 左边
+        for i in 0..<A.count {
+            B[i] = res;
+            res *= A[i];
+        }
+        // 右边
+        res = 1;
+        for i in 0..<A.count {
+            B[A.count-i-1] *= res;
+            res *= A[A.count-i-1];
+        }
+
+        return B;
+    }
+}
