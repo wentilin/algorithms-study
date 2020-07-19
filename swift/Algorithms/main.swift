@@ -93,3 +93,8 @@ _TreeTests.testFindPath()
 ListNodeTests.testCloneRandomListNode()
 
 print("Add(5, 70)=\(SomeAlgorithms.add(5, 70))")
+
+
+let numbers = [123, 42, 123, 56, 42, 89, 56, 100]
+let res = SomeAlgorithms.findNumsAppearOnce(numbers: numbers)
+print("findNumsAppearOnce<\(numbers)>: \(res)")
