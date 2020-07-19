@@ -131,3 +131,13 @@ extension TreeAlgorithm {
         _visitNode(node.right, target: target, path: nextPath, pathSum: sum, allPath: &allPath)
     }
 }
+
+extension TreeAlgorithm {
+    static func depth(of tree: TreeNode?) -> Int {
+        guard let _tree = tree else {
+            return 0
+        }
+        
+        return max(depth(of: _tree.left), depth(of: _tree.right)) + 1
+    }
+}

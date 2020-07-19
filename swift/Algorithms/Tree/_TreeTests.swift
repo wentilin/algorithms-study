@@ -79,3 +79,10 @@ extension _TreeTests {
         print("findPath with target(\(target)):\(path)")
     }
 }
+
+extension _TreeTests {
+    static func testDepth() {
+        let tree = _buildTree()
+        print("Depth of Tree: \(TreeAlgorithm.depth(of: tree))")
+    }
+}

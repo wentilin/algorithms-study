@@ -90,6 +90,8 @@ _TreeTests.testVerifySquenceOfBST()
 
 _TreeTests.testFindPath()
 
+_TreeTests.testDepth()
+
 ListNodeTests.testCloneRandomListNode()
 
 print("Add(5, 70)=\(SomeAlgorithms.add(5, 70))")
@@ -100,3 +102,5 @@ let res = SomeAlgorithms.findNumsAppearOnce(numbers: numbers)
 print("findNumsAppearOnce<\(numbers)>: \(res)")
 
 print("multiply:\(SomeAlgorithms.multiply(A: [1, 2, 3, 4, 5]))")
+
+print("cut rope(10): \(SomeAlgorithms.cutRope(target: 10))")

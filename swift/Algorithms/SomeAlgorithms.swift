@@ -95,3 +95,29 @@ extension SomeAlgorithms {
         return B;
     }
 }
+
+extension SomeAlgorithms {
+    /*
+     给你一根长度为n的绳子，请把绳子剪成整数长的m段（m、n都是整数，n>1并且m>1，m<=n），
+     每段绳子的长度记为k[1],...,k[m]。请问k[1]x...xk[m]可能的最大乘积是多少？
+     例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
+     解法：
+        n可以划分为2~n段，每段都先贪婪的选取ceil(target_remain/n_remain)
+     */
+    public static func cutRope(target: Int) -> Int {
+        var res = 0
+        for i in 2..<target {
+            var temp = 1
+            var remaind = target
+            for j in 0..<i {
+                let cur = Int(ceilf(Float(remaind)/Float(i-j)))
+                temp *= cur;
+                remaind -= cur;
+            }
+
+            res = max(res, temp);
+        }
+
+        return res;
+    }
+}
