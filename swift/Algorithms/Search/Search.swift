@@ -122,42 +122,6 @@ func indexOfArryNxM(_ array: [[Int]], target: Int) -> (Int, Int)? {
     return nil
 }
 
-<<<<<<< HEAD:Algorithms/Search.swift
-//
-func findMin(in array: [Int]) -> Int? {
-    if array.count <= 1 {
-        return array.last
-    }
-
-    if array.first! == array.last! {
-        return array.first
-    }
-    
-    if array.first! < array.last! {
-         return nil
-    }
-    
-    var lo = 0
-    var hi = array.count - 2
-    let target = array[hi+1]
-
-    while lo < hi {
-        let mid = (lo + hi) / 2
-        
-        let left = array[mid-1]
-        let middle = array[mid]
-        let right = array[mid+1]
-        if target < left, target > middle {
-            return middle
-        }
-        
-        if target < middle, target > right {
-            return right
-        }
-        
-        if target <= right {
-            lo = mid
-=======
 /*
  * 查找非递减旋转数组最小值
  */
@@ -176,15 +140,10 @@ func minNumberInRotateArray(_ array: [Int]) -> Int {
             lo = mid + 1
         } else if array[mid] == array[hi] {
             hi -= 1
->>>>>>> 91a8f8bd2549ce16365e2884ddca6c0f81be8e6e:swift/Algorithms/Search/Search.swift
         } else {
             hi = mid
         }
     }
     
-<<<<<<< HEAD:Algorithms/Search.swift
-    return array.last
-=======
     return array[lo]
->>>>>>> 91a8f8bd2549ce16365e2884ddca6c0f81be8e6e:swift/Algorithms/Search/Search.swift
 }
