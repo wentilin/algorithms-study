@@ -115,3 +115,45 @@ func indexOfArryNxM(_ array: [[Int]], target: Int) -> (Int, Int)? {
     
     return nil
 }
+
+//
+func findMin(in array: [Int]) -> Int? {
+    if array.count <= 1 {
+        return array.last
+    }
+
+    if array.first! == array.last! {
+        return array.first
+    }
+    
+    if array.first! < array.last! {
+         return nil
+    }
+    
+    var lo = 0
+    var hi = array.count - 2
+    let target = array[hi+1]
+
+    while lo < hi {
+        let mid = (lo + hi) / 2
+        
+        let left = array[mid-1]
+        let middle = array[mid]
+        let right = array[mid+1]
+        if target < left, target > middle {
+            return middle
+        }
+        
+        if target < middle, target > right {
+            return right
+        }
+        
+        if target <= right {
+            lo = mid
+        } else {
+            hi = mid
+        }
+    }
+    
+    return array.last
+}

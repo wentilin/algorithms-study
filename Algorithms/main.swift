@@ -37,3 +37,6 @@ print(arr)
 
 print(search_nxm(arr, number: 4))
 print(indexOfArryNxM(arr, target: 4))
+
+print("find min:")
+print(findMin(in: [2, 3, 1]))
