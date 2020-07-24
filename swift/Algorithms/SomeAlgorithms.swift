@@ -121,3 +121,11 @@ extension SomeAlgorithms {
         return res;
     }
 }
+
+extension SomeAlgorithms {
+    static func swap(num1: inout Int, num2: inout Int) {
+        num1 = num1 ^ num2
+        num2 = num1 ^ num2
+        num1 = num1 ^ num2
+    }
+}
