@@ -132,3 +132,49 @@ class ListNodeAlgorithm {
         return cloneHead
     }
 }
+
+extension ListNodeAlgorithm {
+    /// 给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出nil。
+    /// 解法：1、设置快慢指针，假如有环，他们最后一定相遇。
+    ///      2、两个指针分别从链表头和相遇点继续出发，每次走一步，最后一定相遇与环入口。
+    /// 证明：进入环后快指针一定可以追上慢指针，设起始点到环入口距离为a，入口到相遇点为b，
+    ///      相遇点到入口为c，走了k圈后相遇，则有
+    ///      快指针 = a + (b + c) * k + b，慢指针 = a + b，快指针是慢指针速度的两倍，有
+    ///      2 * ( a + b) = a + (b + c) * k + b ==> a = (k - 1) * (b + c) + c
+    ///      说明链表头到环入口的距离 = 相遇点到环入口的距离 + (k - 1)圈环长度
+    ///      两个指针分别从链表头和相遇点出发，最后一定相遇于环入口。
+    ///      --------a---------entry-----------------b
+    ///                 |                         |
+    ///                 c------meet--------|
+    public static func entryNodeOfLoop(pHead: ListNode?) -> ListNode? {
+        if (pHead == nil) {
+            return nil;
+        }
+        
+        var n1: ListNode? = pHead;
+        var n2: ListNode? = pHead;
+        
+        // 第一次相遇
+        while (n1 != nil && n2 != nil && n2?.next != nil) {
+            n1 = n1?.next;
+            n2 = n2?.next?.next;
+            
+            if (n1! == n2!) {
+                break;
+            }
+        }
+        
+        if (n1 == nil || n2?.next == nil) {
+            return nil;
+        }
+        
+        // n1从头开始走
+        n1 = pHead;
+        while (n1! != n2!) {
+            n1 = n1?.next;
+            n2 = n2?.next;
+        }
+        
+        return n1;
+    }
+}

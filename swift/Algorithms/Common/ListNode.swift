@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ListNode {
+class ListNode: NSObject {
     var val: Int
     var next: ListNode?
     
