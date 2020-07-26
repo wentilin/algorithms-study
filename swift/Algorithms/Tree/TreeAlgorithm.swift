@@ -141,3 +141,45 @@ extension TreeAlgorithm {
         return max(depth(of: _tree.left), depth(of: _tree.right)) + 1
     }
 }
+
+
+extension TreeAlgorithm {
+    /// 从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
+    /// 解法：广度优先遍历每一层，把当前层的值存起来，再加入下一层
+    static func printLevels(pRoot: TreeNode?) -> [[Int]] {
+        var levels: [[Int]] = [[]]
+
+        if (pRoot == nil) {
+            return [[]]
+        }
+
+        var stack: [TreeNode] = [];
+        stack.append(pRoot!)
+
+        while (!stack.isEmpty) {
+            var level: [TreeNode] = []
+            var levelValues: [Int] = []
+
+            while (!stack.isEmpty) {
+                let node = stack.removeFirst()
+                level.append(node)
+            }
+
+            for node in level {
+                if (node.left != nil) {
+                    stack.append(node.left!);
+                }
+                
+                if (node.right != nil) {
+                    stack.append(node.right!);
+                }
+
+                levelValues.append(node.value);
+            }
+
+            levels.append(levelValues);
+        }
+
+        return levels;
+    }
+}
