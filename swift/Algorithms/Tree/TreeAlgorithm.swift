@@ -183,3 +183,41 @@ extension TreeAlgorithm {
         return levels;
     }
 }
+
+extension TreeAlgorithm {
+    /// 给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。
+    /// 注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
+    static func nextOfRootFirst(pNode: TreeLinkNode?) -> TreeLinkNode? {
+        if pNode == nil {
+            return nil
+        }
+        
+        var pNode: TreeLinkNode? = pNode
+        
+        // 具有右子点，返回右子点的左边路劲的最尾部节点或者该右节点
+        if (pNode?.right != nil) {
+            pNode = pNode?.right;
+            while (pNode?.left != nil) {
+                pNode = pNode?.left
+            }
+            return pNode
+        }
+
+        // 是父节点的左子点，返回父节点
+        if (pNode?.parent != nil && pNode!.parent!.left == pNode!) {
+            return pNode?.parent
+        }
+
+        // 是父节点的右节点，找到改节点的父节点的父节点...直到节点是其父节点的左节点
+        while (pNode?.parent != nil) {
+            let parent = pNode!.parent;
+            if (pNode == parent!.left) {
+                return parent;
+            }
+
+            pNode = pNode?.parent;
+        }
+
+        return nil;
+    }
+}

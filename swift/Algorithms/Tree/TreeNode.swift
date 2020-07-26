@@ -19,3 +19,17 @@ class TreeNode {
         self.right = right
     }
 }
+
+class TreeLinkNode: NSObject {
+    let value: Int
+    var left: TreeLinkNode?
+    var right: TreeLinkNode?
+    var parent: TreeLinkNode?
+    
+    init(value: Int, left: TreeLinkNode? = nil, right: TreeLinkNode? = nil, parent: TreeLinkNode? = nil) {
+        self.value = value
+        self.left = left
+        self.right = right
+        self.parent = parent
+    }
+}
