@@ -131,3 +131,93 @@ extension TreeAlgorithm {
         _visitNode(node.right, target: target, path: nextPath, pathSum: sum, allPath: &allPath)
     }
 }
+
+extension TreeAlgorithm {
+    static func depth(of tree: TreeNode?) -> Int {
+        guard let _tree = tree else {
+            return 0
+        }
+        
+        return max(depth(of: _tree.left), depth(of: _tree.right)) + 1
+    }
+}
+
+
+extension TreeAlgorithm {
+    /// 从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
+    /// 解法：广度优先遍历每一层，把当前层的值存起来，再加入下一层
+    static func printLevels(pRoot: TreeNode?) -> [[Int]] {
+        var levels: [[Int]] = [[]]
+
+        if (pRoot == nil) {
+            return [[]]
+        }
+
+        var stack: [TreeNode] = [];
+        stack.append(pRoot!)
+
+        while (!stack.isEmpty) {
+            var level: [TreeNode] = []
+            var levelValues: [Int] = []
+
+            while (!stack.isEmpty) {
+                let node = stack.removeFirst()
+                level.append(node)
+            }
+
+            for node in level {
+                if (node.left != nil) {
+                    stack.append(node.left!);
+                }
+                
+                if (node.right != nil) {
+                    stack.append(node.right!);
+                }
+
+                levelValues.append(node.value);
+            }
+
+            levels.append(levelValues);
+        }
+
+        return levels;
+    }
+}
+
+extension TreeAlgorithm {
+    /// 给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。
+    /// 注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
+    static func nextOfRootFirst(pNode: TreeLinkNode?) -> TreeLinkNode? {
+        if pNode == nil {
+            return nil
+        }
+        
+        var pNode: TreeLinkNode? = pNode
+        
+        // 具有右子点，返回右子点的左边路劲的最尾部节点或者该右节点
+        if (pNode?.right != nil) {
+            pNode = pNode?.right;
+            while (pNode?.left != nil) {
+                pNode = pNode?.left
+            }
+            return pNode
+        }
+
+        // 是父节点的左子点，返回父节点
+        if (pNode?.parent != nil && pNode!.parent!.left == pNode!) {
+            return pNode?.parent
+        }
+
+        // 是父节点的右节点，找到改节点的父节点的父节点...直到节点是其父节点的左节点
+        while (pNode?.parent != nil) {
+            let parent = pNode!.parent;
+            if (pNode == parent!.left) {
+                return parent;
+            }
+
+            pNode = pNode?.parent;
+        }
+
+        return nil;
+    }
+}

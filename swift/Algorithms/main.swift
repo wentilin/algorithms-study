@@ -89,3 +89,24 @@ QueueTest.testPriorityQueue()
 _TreeTests.testVerifySquenceOfBST()
 
 _TreeTests.testFindPath()
+
+_TreeTests.testDepth()
+
+ListNodeTests.testCloneRandomListNode()
+
+print("Add(5, 70)=\(SomeAlgorithms.add(5, 70))")
+
+
+let numbers = [123, 42, 123, 56, 42, 89, 56, 100]
+let res = SomeAlgorithms.findNumsAppearOnce(numbers: numbers)
+print("findNumsAppearOnce<\(numbers)>: \(res)")
+
+print("multiply:\(SomeAlgorithms.multiply(A: [1, 2, 3, 4, 5]))")
+
+print("cut rope(10): \(SomeAlgorithms.cutRope(target: 10))")
+
+var num1 = 234
+var num2 = 564
+print("swap \(num1) \(num2):")
+SomeAlgorithms.swap(num1: &num1, num2: &num2)
+print("\(num1), \(num2)")

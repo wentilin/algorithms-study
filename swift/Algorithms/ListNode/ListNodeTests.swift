@@ -49,3 +49,26 @@ extension ListNodeTests {
         return head.next
     }
 }
+
+extension ListNodeTests {
+    static func testCloneRandomListNode() {
+        let a = RandomListNode("a")
+        let b = RandomListNode("b")
+        let c = RandomListNode("c")
+        let d = RandomListNode("d")
+        let e = RandomListNode("e")
+        a.next = b
+        a.random = c
+        
+        b.next = c
+        b.random = e
+        
+        c.next = d
+        
+        d.next = e
+        d.random = b
+        
+        let cloneNode = ListNodeAlgorithm.clone(a)
+        print(cloneNode)
+    }
+}
