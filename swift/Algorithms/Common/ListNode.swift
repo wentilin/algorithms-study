@@ -18,8 +18,8 @@ class ListNode: NSObject {
     }
 }
 
-extension ListNode: CustomStringConvertible {
-    var description: String {
+extension ListNode {
+    override var description: String {
         var des: String = "\(val)"
         var next = self.next
         while next != nil {
