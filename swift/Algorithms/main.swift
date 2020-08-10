@@ -110,3 +110,5 @@ var num2 = 564
 print("swap \(num1) \(num2):")
 SomeAlgorithms.swap(num1: &num1, num2: &num2)
 print("\(num1), \(num2)")
+
+print(StackAlgorithm.isPopOrder(pushOrders: [1, 2, 3, 4, 5], popOrders: [4, 3, 5, 1, 2]))
