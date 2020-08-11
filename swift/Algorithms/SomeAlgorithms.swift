@@ -129,3 +129,95 @@ extension SomeAlgorithms {
         num1 = num1 ^ num2
     }
 }
+
+class MachineState: NSObject {
+    let isAccepted: Bool
+    private var transfers: [Character: MachineState] = [:]
+    
+    private var digitState: MachineState?
+    
+    init(isAccepted: Bool) {
+        self.isAccepted = isAccepted
+    }
+    
+    func transfer(with char: Character, to machineState: MachineState) {
+        transfers[char] = machineState
+    }
+    
+    func transferDigit(to machineState: MachineState) {
+        digitState = machineState
+    }
+    
+    func transfer(with char: Character) -> MachineState? {
+        if let _ = Int(String(char)) {
+            return digitState
+        }
+        
+        return transfers[char]
+    }
+}
+
+class ExpressionAlgorithms {
+    /*
+     请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串"+100","5e2","-123",
+     "3.1416"和"-1E-16"都表示数值。 但是"12e","1a3.14","1.2.3","+-5"和"12e+4.3"都不是。
+     解法：构建确定有限状态机DFA
+     */
+    static func isNumeric(of string: String) -> Bool {
+        var machineState: MachineState? = _buildStateMachine()
+        
+        for ch in string {
+            machineState = machineState?.transfer(with: ch)
+            if machineState == nil {
+                return false
+            }
+        }
+        
+        return machineState!.isAccepted
+    }
+    
+    static func _buildStateMachine() -> MachineState {
+        let start = MachineState(isAccepted: false)
+        
+        let state1 = MachineState(isAccepted: false)
+        let state2 = MachineState(isAccepted: false)
+        let state3 = MachineState(isAccepted: true)
+        
+        start.transfer(with: "+", to: state1)
+        start.transfer(with: "-", to: state2)
+        start.transferDigit(to: state3)
+        state3.transferDigit(to: state3)
+        
+        let state4 = MachineState(isAccepted: true)
+        state1.transferDigit(to: state4)
+        state2.transferDigit(to: state4)
+        state4.transferDigit(to: state4)
+        
+        let state5 = MachineState(isAccepted: false)
+        state4.transfer(with: "e", to: state5)
+        state4.transfer(with: "E", to: state5)
+        state3.transfer(with: "e", to: state5)
+        state3.transfer(with: "E", to: state5)
+        
+        let state6 = MachineState(isAccepted: true)
+        state5.transferDigit(to: state6)
+        state6.transferDigit(to: state6)
+        
+        let state7 = MachineState(isAccepted: false)
+        state5.transfer(with: "-", to: state7)
+        
+        let state8 = MachineState(isAccepted: true)
+        state7.transferDigit(to: state8)
+        state8.transferDigit(to: state8)
+        
+        let state9 = MachineState(isAccepted: false)
+        state4.transfer(with: ".", to: state9)
+        state3.transfer(with: ".", to: state9)
+        
+        let state10 = MachineState(isAccepted: true)
+        state9.transferDigit(to: state10)
+        state10.transferDigit(to: state10)
+        
+        return start
+    }
+}

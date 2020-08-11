@@ -153,7 +153,7 @@ extension TreeAlgorithm {
             return [[]]
         }
 
-        var stack: [TreeNode] = [];
+        var stack: [TreeNode] = []
         stack.append(pRoot!)
 
         while (!stack.isEmpty) {
@@ -167,20 +167,20 @@ extension TreeAlgorithm {
 
             for node in level {
                 if (node.left != nil) {
-                    stack.append(node.left!);
+                    stack.append(node.left!)
                 }
                 
                 if (node.right != nil) {
-                    stack.append(node.right!);
+                    stack.append(node.right!)
                 }
 
-                levelValues.append(node.value);
+                levelValues.append(node.value)
             }
 
-            levels.append(levelValues);
+            levels.append(levelValues)
         }
 
-        return levels;
+        return levels
     }
 }
 
@@ -196,7 +196,7 @@ extension TreeAlgorithm {
         
         // 具有右子点，返回右子点的左边路劲的最尾部节点或者该右节点
         if (pNode?.right != nil) {
-            pNode = pNode?.right;
+            pNode = pNode?.right
             while (pNode?.left != nil) {
                 pNode = pNode?.left
             }
@@ -210,14 +210,44 @@ extension TreeAlgorithm {
 
         // 是父节点的右节点，找到改节点的父节点的父节点...直到节点是其父节点的左节点
         while (pNode?.parent != nil) {
-            let parent = pNode!.parent;
+            let parent = pNode!.parent
             if (pNode == parent!.left) {
-                return parent;
+                return parent
             }
 
-            pNode = pNode?.parent;
+            pNode = pNode?.parent
         }
 
-        return nil;
+        return nil
+    }
+}
+
+extension TreeAlgorithm {
+    // 输入一棵二叉树，判断该二叉树是否是平衡二叉树。
+    // 在这里，我们只需要考虑其平衡性，不需要考虑其是不是排序二叉树
+    public func isTreeBalanced(_ root: TreeNode?) -> Bool {
+        if (root == nil) {
+            return true
+        }
+
+        let leftLevel = _levelOf(root?.left)
+        let rightLevel = _levelOf(root?.right)
+
+        if (abs(leftLevel - rightLevel) <= 1) {
+            return isTreeBalanced(root?.left) && isTreeBalanced(root?.right)
+        } else {
+            return false
+        }
+    }
+    
+    public func _levelOf(_ root: TreeNode?) -> Int {
+        if (root == nil) {
+            return 0
+        }
+
+        let rightLevel = _levelOf(root?.right)
+        let leftLevel = _levelOf(root?.left)
+
+        return max(rightLevel, leftLevel) + 1
     }
 }
