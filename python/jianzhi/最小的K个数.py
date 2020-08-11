@@ -41,7 +41,7 @@ class Solution1:
 class Solution2:
     # 方法: 最小堆
     def GetLeastNumbers_Solution(self, tinput, k):
-
+        pass
 
 
 if __name__ == '__main__':
