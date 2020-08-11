@@ -180,17 +180,21 @@ class ExpressionAlgorithms {
         let start = MachineState(isAccepted: false)
         
         let state1 = MachineState(isAccepted: false)
-        let state2 = MachineState(isAccepted: false)
         let state3 = MachineState(isAccepted: true)
         
         start.transfer(with: "+", to: state1)
-        start.transfer(with: "-", to: state2)
+        start.transfer(with: "-", to: state1)
         start.transferDigit(to: state3)
         state3.transferDigit(to: state3)
+        
+        let state2 = MachineState(isAccepted: false)
+        start.transfer(with: ".", to: state2)
+        state1.transfer(with: ".", to: state2)
         
         let state4 = MachineState(isAccepted: true)
         state1.transferDigit(to: state4)
         state2.transferDigit(to: state4)
+        
         state4.transferDigit(to: state4)
         
         let state5 = MachineState(isAccepted: false)
@@ -204,6 +208,7 @@ class ExpressionAlgorithms {
         state6.transferDigit(to: state6)
         
         let state7 = MachineState(isAccepted: false)
+        state5.transfer(with: "+", to: state7)
         state5.transfer(with: "-", to: state7)
         
         let state8 = MachineState(isAccepted: true)
@@ -217,6 +222,8 @@ class ExpressionAlgorithms {
         let state10 = MachineState(isAccepted: true)
         state9.transferDigit(to: state10)
         state10.transferDigit(to: state10)
+        state10.transfer(with: "e", to: state5)
+        state10.transfer(with: "E", to: state5)
         
         return start
     }

@@ -114,6 +114,8 @@ print("\(num1), \(num2)")
 print(StackAlgorithm.isPopOrder(pushOrders: [1, 2, 3, 4, 5], popOrders: [4, 3, 5, 1, 2]))
 
 print("\(ExpressionAlgorithms.isNumeric(of: ""))")
+print(".1:\(ExpressionAlgorithms.isNumeric(of: ".1"))")
+print("+.1:\(ExpressionAlgorithms.isNumeric(of: "+.1"))")
 print("+100:\(ExpressionAlgorithms.isNumeric(of: "+100"))")
 print("5e2:\(ExpressionAlgorithms.isNumeric(of: "5e2"))")
 print("-123:\(ExpressionAlgorithms.isNumeric(of: "-123"))")
