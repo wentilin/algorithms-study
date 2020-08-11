@@ -125,3 +125,6 @@ print("12e:\(ExpressionAlgorithms.isNumeric(of: "12e"))")
 print("1a3.14:\(ExpressionAlgorithms.isNumeric(of: "1a3.14"))")
 print("+-5:\(ExpressionAlgorithms.isNumeric(of: "+-5"))")
 print("12e+4.3:\(ExpressionAlgorithms.isNumeric(of: "12e+4.3"))")
+
+let tree = TreeAlgorithm.reConstructBinaryTree(preOrders: [1, 2, 4, 7, 3, 5, 6, 8], inOrders: [4, 7, 2, 1, 5, 3, 8, 6])
+print(tree!)
