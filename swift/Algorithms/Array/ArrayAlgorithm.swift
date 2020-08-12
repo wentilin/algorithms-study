@@ -50,3 +50,53 @@ class ArrayAlgorithm {
         return appearCount
     }
 }
+
+extension ArrayAlgorithm {
+    /*
+     的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。
+     输出描述:
+     对应每个测试案例，输出两个数，小的先输出。
+     */
+    static func twoNumbersWith(sum: Int, inSortedArray array: [Int]) -> (Int, Int)? {
+        guard array.count > 1 else { return nil }
+
+        var lo = 0
+        var hi = array.count - 1
+        var pair: (Int, Int)? = nil
+        var multiRes = Int.min
+        while lo < hi {
+            let num = sum - array[lo]
+            
+            while array[hi] > num {
+                hi -= 1
+            }
+            
+            if array[hi] == num {
+                let loNum = array[lo]
+                let hiNum = array[hi]
+                if pair == nil {
+                    pair = (loNum, hiNum)
+                }
+                if (loNum * hiNum < multiRes) {
+                    pair?.0 = lo
+                    pair?.1 = hi
+
+                    multiRes = loNum * hiNum
+                }
+                
+                while array[lo] == array[lo+1] {
+                    lo += 1
+                }
+                
+                while array[hi] == array[hi-1] {
+                    hi -= 1
+                }
+            }
+            
+            lo += 1
+        }
+        
+        return pair
+    }
+    
+}

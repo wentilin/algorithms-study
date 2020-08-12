@@ -130,3 +130,5 @@ let tree = TreeAlgorithm.reConstructBinaryTree(preOrders: [1, 2, 4, 7, 3, 5, 6, 
 print(tree!)
 
 ArrayAlgorithm.findAppearCount(of: 3, inSortedArray: [3])
+
+ArrayAlgorithm.twoNumbersWith(sum: 15, inSortedArray: [1, 2, 4, 7, 11, 15])
