@@ -251,3 +251,36 @@ extension TreeAlgorithm {
         return max(rightLevel, leftLevel) + 1
     }
 }
+
+extension TreeAlgorithm {
+    /*
+     输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
+     例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
+     解法：先序遍历确定root的位置，中序遍历确定了左右子树的位置，递归生成树
+     */
+    static func reConstructBinaryTree(preOrders: [Int], inOrders: [Int]) -> TreeNode? {
+        if preOrders.count == 0 {
+            return nil
+        }
+        
+        let  rootValue = preOrders[0]
+        
+        if preOrders.count == 1 {
+            return TreeNode(value: rootValue)
+        }
+        
+        let root = TreeNode(value: rootValue)
+        var rootIndex = 0
+        for i in 0..<inOrders.count {
+            if rootValue == inOrders[i] {
+                rootIndex = i
+                break;
+            }
+        }
+        
+        root.left = reConstructBinaryTree(preOrders: Array(preOrders[1..<rootIndex+1]), inOrders: Array(inOrders[0..<rootIndex]))
+        root.right = reConstructBinaryTree(preOrders: Array(preOrders[rootIndex+1..<preOrders.count]), inOrders: Array(inOrders[rootIndex+1..<inOrders.count]))
+        
+        return root
+    }
+}
