@@ -132,3 +132,5 @@ print(tree!)
 ArrayAlgorithm.findAppearCount(of: 3, inSortedArray: [3])
 
 ArrayAlgorithm.twoNumbersWith(sum: 15, inSortedArray: [1, 2, 4, 7, 11, 15])
+
+ListNodeAlgorithm.lastRemaining(n: 0, m: 0)
