@@ -6,7 +6,7 @@
 
 # -*- coding:utf-8 -*-
 class Solution1:
-    # 方法: 循环 记忆性递归
+    # 方法: 迭代 记忆性递归
     # time: O(n)
     # space: O(1)
     def jumpFloor(self, number):
