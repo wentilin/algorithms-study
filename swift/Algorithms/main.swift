@@ -138,3 +138,5 @@ ListNodeAlgorithm.lastRemaining(n: 0, m: 0)
 print(ArrayAlgorithm.isContinuous([1, 3, 2, 6, 4]))
 
 print("leftRotate<abcd, 2>: \(StringAlgorithm.leftRotateString("abcd", n: 2))")
+
+print(ArrayAlgorithm.moreThanHalfItemIn(array: [1, 2, 2, 4, 5, 3, 2, 2, 2, 2]))
