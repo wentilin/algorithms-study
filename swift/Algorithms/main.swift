@@ -142,3 +142,5 @@ print("leftRotate<abcd, 2>: \(StringAlgorithm.leftRotateString("abcd", n: 2))")
 print(ArrayAlgorithm.moreThanHalfItemIn(array: [1, 2, 2, 4, 5, 3, 2, 2, 2, 2]))
 
 print(SomeAlgorithms.findContinuousSequence(for: 100))
+
+print(ArrayAlgorithm.findGreatestSumOfSubArray(array: [6, -3, -2, 7, -15, 1, 2, 2]))
