@@ -86,3 +86,57 @@ extension _TreeTests {
         print("Depth of Tree: \(TreeAlgorithm.depth(of: tree))")
     }
 }
+
+extension _TreeTests {
+    static func testIsSymmetric() {
+        print("isSymmetric:\(TreeAlgorithm.isSymmetric(of: _buildSymmetricTree_1()))")
+    }
+    
+    private static func _buildSymmetricTree() -> TreeNode {
+        let root = TreeNode(value: 5)
+        
+        let left = TreeNode(value: 5)
+        let left_left = TreeNode(value: 5)
+        let left_left_left = TreeNode(value: 5)
+        
+        let right = TreeNode(value: 5)
+        let right_right = TreeNode(value: 5)
+        let right_right_left = TreeNode(value: 5)
+        
+        
+        root.left = left
+        root.right = right
+        
+        left.left = left_left
+        left_left.left = left_left_left
+        
+        right.right = right_right
+        right_right.left = right_right_left
+        
+        return root
+    }
+    
+    private static func _buildSymmetricTree_1() -> TreeNode {
+        let root = TreeNode(value: 8)
+        
+        let left = TreeNode(value: 6)
+        let left_left = TreeNode(value: 5)
+        let left_left_left = TreeNode(value: 7)
+        
+        let right = TreeNode(value: 6)
+        let right_right = TreeNode(value: 5)
+        let right_right_left = TreeNode(value: 7)
+        
+        
+        root.left = left
+        root.right = right
+        
+        left.left = left_left
+        left.right = left_left_left
+        
+        right.right = right_right
+        right.left = right_right_left
+        
+        return root
+    }
+}
