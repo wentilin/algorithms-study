@@ -140,3 +140,53 @@ extension _TreeTests {
         return root
     }
 }
+
+extension _TreeTests {
+    static func testConvert() {
+        var searchTree: TreeNode? = _buildBinarySearchTree()
+        TreeAlgorithm.convert(pRootOfTree: &searchTree)
+        
+        var node: TreeNode? = searchTree
+        var resRight: String = "\(node!.value)"
+        while node?.left != nil {
+            resRight += "->\(node!.left!.value)"
+            node = node?.left
+        }
+        
+        var resLeft: String = "\(node!.value)"
+        while node?.right != nil {
+            resLeft += "<-\(node!.right!.value)"
+            node = node?.right
+        }
+        
+        print(resRight)
+        print(resLeft)
+    }
+    
+    private static func _buildBinarySearchTree() -> TreeNode {
+        let root = TreeNode(value: 8)
+        
+        let left0 = TreeNode(value: 3)
+        let left1 = TreeNode(value: 1)
+        let right1 = TreeNode(value: 6)
+        let left1_1 = TreeNode(value: 4)
+        let right1_1 = TreeNode(value: 7)
+        
+        let right0 = TreeNode(value: 10)
+        let right2 = TreeNode(value: 14)
+        let left2 = TreeNode(value: 13)
+        
+        
+        root.left = left0
+        root.right = right0
+        left0.left = left1
+        left0.right = right1
+        right1.left = left1_1
+        right1.right = right1_1
+        
+        right0.right = right2
+        right2.left = left2
+        
+        return root
+    }
+}

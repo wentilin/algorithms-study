@@ -348,3 +348,42 @@ extension TreeAlgorithm {
     }
     
 }
+
+extension TreeAlgorithm {
+    /**
+     题目：二叉搜索树与双向链表
+     描述：输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结
+     点，只能调整树中结点指针的指向。
+     解法：使用非递归中序遍历
+     */
+    static func convertBinarySearchTreeToDoubleLinkedList(pRootOfTree: inout TreeNode?) {
+        var stack: [TreeNode] = []
+        var node = pRootOfTree
+        var pHeadOfTree: TreeNode? = nil
+        var preNode: TreeNode? = nil
+        while node != nil || !stack.isEmpty {
+            while node != nil {
+                stack.append(node!)
+                node = node?.left
+            }
+            
+            if !stack.isEmpty {
+                node = stack.removeLast()
+                let temp = node
+                node = node?.right
+                
+                if pHeadOfTree == nil {
+                    pHeadOfTree = temp
+                    preNode = temp
+                } else {
+                    preNode?.left = temp
+                    temp?.right = preNode
+                    preNode = temp
+                }
+            }
+        }
+        
+        preNode?.left = nil
+        pRootOfTree = pHeadOfTree
+    }
+}
