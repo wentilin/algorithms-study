@@ -284,3 +284,106 @@ extension TreeAlgorithm {
         return root
     }
 }
+
+extension TreeAlgorithm {
+    /**
+     题目：对称的二叉树
+     描述：请实现一个函数，用来判断一棵二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
+     解法：分别同步层次遍历左右子树，左子树左到右，右子树右到左，一一比较
+     */
+    static func isSymmetric(of pRoot: TreeNode?) -> Bool {
+        var leftNodes: [TreeNode] = []
+        var rightNodes: [TreeNode] = []
+        
+        if pRoot?.left != nil {
+            leftNodes.append(pRoot!.left!)
+        }
+        
+        if pRoot?.right != nil {
+            rightNodes.append(pRoot!.right!)
+        }
+        
+        while !leftNodes.isEmpty && leftNodes.count == rightNodes.count {
+            var leftLevels: [TreeNode] = []
+            var rightLevels: [TreeNode] = []
+            
+            while !leftNodes.isEmpty {
+                let leftNode = leftNodes.removeLast()
+                let rightNode = rightNodes.removeLast()
+                
+                if leftNode.value != rightNode.value {
+                    return false
+                }
+                
+                if let left0 = leftNode.left {
+                    leftLevels.append(left0)
+                }
+                
+                if let right1 = rightNode.right {
+                    rightLevels.append(right1)
+                }
+                
+                if leftLevels.count != rightLevels.count {
+                    return false
+                }
+                
+                if let right0 = leftNode.right {
+                    leftLevels.append(right0)
+                }
+                
+                if let left1 = rightNode.left {
+                    rightLevels.append(left1)
+                }
+                
+                if leftLevels.count != rightLevels.count {
+                    return false
+                }
+            }
+            
+            leftNodes = leftLevels
+            rightNodes = rightLevels
+        }
+        
+        return leftNodes.count == 0 && rightNodes.count == 0
+    }
+    
+}
+
+extension TreeAlgorithm {
+    /**
+     题目：二叉搜索树与双向链表
+     描述：输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结
+     点，只能调整树中结点指针的指向。
+     解法：使用非递归中序遍历
+     */
+    static func convertBinarySearchTreeToDoubleLinkedList(pRootOfTree: inout TreeNode?) {
+        var stack: [TreeNode] = []
+        var node = pRootOfTree
+        var pHeadOfTree: TreeNode? = nil
+        var preNode: TreeNode? = nil
+        while node != nil || !stack.isEmpty {
+            while node != nil {
+                stack.append(node!)
+                node = node?.left
+            }
+            
+            if !stack.isEmpty {
+                node = stack.removeLast()
+                let temp = node
+                node = node?.right
+                
+                if pHeadOfTree == nil {
+                    pHeadOfTree = temp
+                    preNode = temp
+                } else {
+                    preNode?.left = temp
+                    temp?.right = preNode
+                    preNode = temp
+                }
+            }
+        }
+        
+        preNode?.left = nil
+        pRootOfTree = pHeadOfTree
+    }
+}

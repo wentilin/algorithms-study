@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TreeNode {
+class TreeNode: NSObject {
     let value: Int
     var left: TreeNode?
     var right: TreeNode?
