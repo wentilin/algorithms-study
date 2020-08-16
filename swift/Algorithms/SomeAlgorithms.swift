@@ -264,3 +264,41 @@ extension SomeAlgorithms {
         return results
     }
 }
+
+extension SomeAlgorithms {
+    /**
+     题目：整数中1出现的次数（从1到n整数中1出现的次数）
+     描述：求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？
+          为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,
+          但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以
+          很快的求出任意非负整数区间中1出现的次数（从1 到 n 中1出现的次数）。
+     解法：N为x位数，表示为Nx Nx-1...Ni Ni-1...N1，i为当前位cur，Nx Nx-1...Ni+1为高位high， Ni-1...N1为低位low，
+          digit为位数（如10表示十位）
+          1. 当cur=0时，1的次数由高位决定：high * digit
+          2. 当cur=1时，1的次数由高位和低位决定：high * digit + low + 1
+          3. 当cur=2~9时，1的次数由高位决定：(high+1) * digit
+     */
+    static func numberOf1Between1AndN(_ n: Int) -> Int {
+        var digit = 1
+        var res = 0
+        var high = n / 10
+        var cur = n % 10
+        var low = 0
+        while high != 0 || cur != 0 {
+            if cur == 0 {
+                res += high * digit
+            } else if cur == 1 {
+                res += high * digit + low + 1
+            } else {
+                res += (high + 1) * digit
+            }
+            
+            low += cur * digit
+            cur = high % 10
+            high /= 10
+            digit *= 10
+        }
+        
+        return res
+    }
+}
