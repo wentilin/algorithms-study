@@ -144,19 +144,21 @@ extension _TreeTests {
 extension _TreeTests {
     static func testConvert() {
         var searchTree: TreeNode? = _buildBinarySearchTree()
-        TreeAlgorithm.convert(pRootOfTree: &searchTree)
+//        TreeAlgorithm.convertBinarySearchTreeToDoubleLinkedList(pRootOfTree: &searchTree)
+        
+        searchTree = TreeAlgorithm.convertBinarySearchTreeToDoubleLinkedListRecursive(pRootOfTree: searchTree)
         
         var node: TreeNode? = searchTree
         var resRight: String = "\(node!.value)"
-        while node?.left != nil {
-            resRight += "->\(node!.left!.value)"
-            node = node?.left
+        while node?.right != nil {
+            resRight += "->\(node!.right!.value)"
+            node = node?.right
         }
         
         var resLeft: String = "\(node!.value)"
-        while node?.right != nil {
-            resLeft += "<-\(node!.right!.value)"
-            node = node?.right
+        while node?.left != nil {
+            resLeft += "<-\(node!.left!.value)"
+            node = node?.left
         }
         
         print(resRight)

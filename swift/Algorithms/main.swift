@@ -148,3 +148,6 @@ print(ArrayAlgorithm.findGreatestSumOfSubArray(array: [6, -3, -2, 7, -15, 1, 2, 
 _TreeTests.testIsSymmetric()
 
 _TreeTests.testConvert()
+
+print(SomeAlgorithms.numberOf1ToBinary(n: -2313))
+
