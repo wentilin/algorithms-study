@@ -302,3 +302,27 @@ extension SomeAlgorithms {
         return res
     }
 }
+
+extension SomeAlgorithms {
+    /**
+     题目：二进制中1的个数
+     描述：输入一个整数，输出该数32位二进制表示中1的个数，其中负数用补码表示
+     解法：从右向左与1做与运算，结果为1则含有1
+     */
+    static func numberOf1ToBinary(n: Int) -> Int {
+        var count: Int = 0
+        var num = n
+        if n < 0 {
+            num = n & 0x7fffffff
+            count = 1
+        }
+        while num != 0 {
+            if num & 1 == 1 {
+                count += 1
+            }
+            num = num >> 1
+        }
+        
+        return count
+    }
+}
