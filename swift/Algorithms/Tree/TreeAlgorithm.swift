@@ -376,14 +376,40 @@ extension TreeAlgorithm {
                     pHeadOfTree = temp
                     preNode = temp
                 } else {
-                    preNode?.left = temp
-                    temp?.right = preNode
+                    preNode?.right = temp
+                    temp?.left = preNode
                     preNode = temp
                 }
             }
         }
         
-        preNode?.left = nil
+        preNode?.right = nil
         pRootOfTree = pHeadOfTree
+    }
+    
+    static var preNode: TreeNode?
+    static var head: TreeNode?
+    static func convertBinarySearchTreeToDoubleLinkedListRecursive(pRootOfTree: TreeNode?) -> TreeNode? {
+        miOrderVisit(pRootOfTree: pRootOfTree)
+        return head
+    }
+    
+    private static func miOrderVisit(pRootOfTree: TreeNode?) {
+        if pRootOfTree == nil {
+            return
+        }
+        
+        miOrderVisit(pRootOfTree: pRootOfTree?.left)
+        
+        if head == nil {
+            head = pRootOfTree
+            preNode = pRootOfTree
+        } else {
+            preNode?.right = pRootOfTree
+            pRootOfTree?.left = preNode
+            preNode = pRootOfTree
+        }
+        
+        miOrderVisit(pRootOfTree: pRootOfTree?.right)
     }
 }
