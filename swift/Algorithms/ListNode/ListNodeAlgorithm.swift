@@ -222,3 +222,38 @@ extension ListNodeAlgorithm {
         return preNode?.val ?? -1
     }
 }
+
+extension ListNodeAlgorithm {
+    /**
+     题目：删除链表中重复的节点
+     描述：在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。
+          例如，链表1->2->3->3->4->4->5 处理后为 1->2->5
+     解法：使用前后双指针，后指针用于循环消除重复节点
+     */
+    static func deleteDuplicateNodeInSortedLinkedList(_ linkedList: ListNode?) -> ListNode? {
+        if linkedList == nil {
+            return nil
+        }
+        
+        let head = ListNode(val: -1)
+        head.next = linkedList
+        var preNode: ListNode? = head
+        var nextNode: ListNode? = linkedList
+        
+        while nextNode != nil {
+            if nextNode!.next != nil, nextNode!.val == nextNode!.next!.val {
+                while nextNode!.next != nil, nextNode!.val == nextNode!.next!.val {
+                    nextNode = nextNode?.next
+                }
+                
+                preNode?.next = nextNode?.next
+                nextNode = nextNode?.next
+            } else {
+                preNode = preNode?.next
+                nextNode = nextNode?.next
+            }
+        }
+        
+        return head.next
+    }
+}

@@ -72,3 +72,10 @@ extension ListNodeTests {
         print(cloneNode)
     }
 }
+
+extension ListNodeTests {
+    static func testDeleteDuplicateNodeInSortedLinkedList() {
+        let list = _buildList(from: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6])
+        print(ListNodeAlgorithm.deleteDuplicateNodeInSortedLinkedList(list))
+    }
+}
