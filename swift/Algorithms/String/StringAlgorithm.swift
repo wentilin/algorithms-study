@@ -11,7 +11,8 @@ import Foundation
 class StringAlgorithm {
     /*
     题目：左旋转字符串
-    描述：汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！
+    描述：汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，
+         请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！
     解法：字符串str可分为子字符串X(0~n-1)和Y(n~end)，leftRotate(str, n) = rotate(rotate(X)+rotate(Y))
     */
     static func leftRotateString(_ str: String, n: Int) -> String {
@@ -40,5 +41,45 @@ class StringAlgorithm {
         }
         
         return String(chars)
+    }
+}
+
+extension StringAlgorithm {
+    /**
+     题目：字符串排列
+     描述：输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则按字典序打印出由字符a,b,c
+          所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
+     输入描述:
+            输入一个字符串,长度不超过9(可能有字符重复),字符只包括大小写字母。
+     解法：先固定一个点，将后面的不断交换产生新的字符串，直到交换完最后两个
+     */
+    static func permutation(ofString str: String) -> [String] {
+        var result: [String] = []
+        var chars: [Character] = str.map{ $0 }
+        if str.count > 0 {
+            _permutation(of: &chars, location: 0, result: &result)
+            result.sort()
+        }
+        
+        return result
+    }
+    
+    private static func _permutation(of chars: inout [Character], location: Int, result: inout [String]) {
+        if location == chars.count - 1 {
+            let str = String(chars)
+            if !result.contains(str) {
+                result.append(str)
+            }
+        } else {
+            for i in location..<chars.count {
+                _swap(chars: &chars, i: location, j: i)
+                _permutation(of: &chars, location: location+1, result: &result)
+                _swap(chars: &chars, i: location, j: i)
+            }
+        }
+    }
+    
+    private static func _swap(chars: inout [Character], i: Int, j: Int) {
+        (chars[i], chars[j]) = (chars[j], chars[i])
     }
 }

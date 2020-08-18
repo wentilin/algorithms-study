@@ -152,3 +152,5 @@ _TreeTests.testConvert()
 print(SomeAlgorithms.numberOf1ToBinary(n: -2313))
 
 ListNodeTests.testDeleteDuplicateNodeInSortedLinkedList()
+
+print(StringAlgorithm.permutation(ofString: "abcd"))
