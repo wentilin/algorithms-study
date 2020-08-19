@@ -156,3 +156,5 @@ ListNodeTests.testDeleteDuplicateNodeInSortedLinkedList()
 print(StringAlgorithm.permutation(ofString: "abcd"))
 
 print(ArrayAlgorithm.getKLeastNumbers(array: [4, 5, 1, 6, 2, 7, 3, 8], k: 4))
+
+print(StringAlgorithm.firstNotRepeatingChar(str: "abcdacd"))
