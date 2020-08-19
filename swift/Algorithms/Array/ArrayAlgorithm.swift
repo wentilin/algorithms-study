@@ -209,3 +209,29 @@ extension ArrayAlgorithm {
         return result
     }
 }
+
+extension ArrayAlgorithm {
+    /**
+     题目：最小的K个数
+     描述：输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，
+          则最小的4个数字是1,2,3,4。
+     解法：使用最小堆
+     */
+    static func getKLeastNumbers(array: [Int], k: Int) -> [Int] {
+        guard array.count >= k else {
+            return []
+        }
+        
+        let queue = PriorityQueue()
+        for number in array {
+            queue.push(number)
+        }
+        
+        var res: [Int] = []
+        for _ in 0..<k {
+            res.append(queue.pop())
+        }
+        
+        return res
+    }
+}
