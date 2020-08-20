@@ -212,6 +212,32 @@ extension ArrayAlgorithm {
 
 extension ArrayAlgorithm {
     /**
+     题目：最小的K个数
+     描述：输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，
+          则最小的4个数字是1,2,3,4。
+     解法：使用最小堆
+     */
+    static func getKLeastNumbers(array: [Int], k: Int) -> [Int] {
+        guard array.count >= k else {
+            return []
+        }
+        
+        let queue = PriorityQueue()
+        for number in array {
+            queue.push(number)
+        }
+        
+        var res: [Int] = []
+        for _ in 0..<k {
+            res.append(queue.pop())
+        }
+        
+        return res
+    }
+}
+
+extension ArrayAlgorithm {
+    /**
      题目：把数组排成最小的数
      描述：输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
           例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。
@@ -240,5 +266,4 @@ extension ArrayAlgorithm {
 
         return res
     }
-
 }

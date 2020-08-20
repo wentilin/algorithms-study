@@ -83,3 +83,31 @@ extension StringAlgorithm {
         (chars[i], chars[j]) = (chars[j], chars[i])
     }
 }
+
+extension StringAlgorithm {
+    /**
+     题目：第一个只出现一次的字符
+     描述：在一个字符串(0<=字符串长度<=10000，全部由字母组成)中找到第一个只出现一次的字符,
+          并返回它的位置, 如果没有则返回 -1（需要区分大小写）.（从0开始计数）
+     解法：使用哈希表
+     */
+    static func firstNotRepeatingChar(str: String) -> Int? {
+        var charMappings: [Character: Int] = [:]
+        
+        for char in str {
+            if charMappings[char] == nil {
+                charMappings[char] = 1
+            } else {
+                charMappings[char]! += 1
+            }
+        }
+        
+        for (index, char) in str.enumerated() {
+            if charMappings[char] == 1 {
+                return index
+            }
+        }
+        
+        return nil
+    }
+}
