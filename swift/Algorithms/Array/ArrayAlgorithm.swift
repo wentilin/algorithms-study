@@ -209,3 +209,36 @@ extension ArrayAlgorithm {
         return result
     }
 }
+
+extension ArrayAlgorithm {
+    /**
+     题目：把数组排成最小的数
+     描述：输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
+          例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。
+     解法：将数组转为字符串数组，再排序
+     */
+    static func printMinConbinatedNumber(numbers: [Int]) -> String {
+        if numbers.count == 0 {
+            return ""
+        }
+
+        var strs: [String] = []
+        for number in numbers {
+            strs.append(String(number))
+        }
+
+        strs.sort { (s1, s2) -> Bool in
+            let c1 = s1 + s2
+            let c2 = s2 + s1
+            return c1.compare(c2) == .orderedAscending
+        }
+
+        var res = ""
+        for str in strs {
+            res += str
+        }
+
+        return res
+    }
+
+}

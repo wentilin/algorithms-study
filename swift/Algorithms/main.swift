@@ -154,3 +154,5 @@ print(SomeAlgorithms.numberOf1ToBinary(n: -2313))
 ListNodeTests.testDeleteDuplicateNodeInSortedLinkedList()
 
 print(StringAlgorithm.permutation(ofString: "abcd"))
+
+print(ArrayAlgorithm.printMinConbinatedNumber(numbers: [3, 32, 321]))
