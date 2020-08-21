@@ -9,7 +9,6 @@
 # -*- coding:utf-8 -*-
 class Solution:
     # 方法：a ^ 0 = a, a ^ a = 0, 异或^满足交换结合律
-    #
     def FindNumsAppearOnce(self, array):
         res = 0 # 初始化为0，a ^ 0 = a
         for i in array:

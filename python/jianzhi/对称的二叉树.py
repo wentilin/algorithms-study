@@ -13,6 +13,9 @@ class TreeNode:
 
 
 class Solution:
+    # 方法: 递归
+    # time: O(n)
+    # space: O(n)
     def equal(self, left, right):
         if not left and not right:
             return True
