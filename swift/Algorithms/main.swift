@@ -164,3 +164,5 @@ print(ArrayAlgorithm.printMinConbinatedNumber(numbers: [3, 32, 321]))
 print(SomeAlgorithms.getUglyNumber(index: 6))
 
 print(StringAlgorithm.reverseSentence(str: "  "))
+
+print(StringAlgorithm.stringToInt(str: "1234"))
