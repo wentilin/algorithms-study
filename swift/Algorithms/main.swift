@@ -162,3 +162,5 @@ print(StringAlgorithm.firstNotRepeatingChar(str: "abcdacd"))
 print(ArrayAlgorithm.printMinConbinatedNumber(numbers: [3, 32, 321]))
 
 print(SomeAlgorithms.getUglyNumber(index: 6))
+
+print(StringAlgorithm.reverseSentence(str: "  "))
