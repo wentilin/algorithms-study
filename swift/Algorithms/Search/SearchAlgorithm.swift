@@ -1,5 +1,5 @@
 //
-//  Search.swift
+//  SearchAlgorithm.swift
 //  Algorithms
 //
 //  Created by wentilin on 2020/4/22.
@@ -146,4 +146,52 @@ func minNumberInRotateArray(_ array: [Int]) -> Int {
     }
     
     return array[lo]
+}
+
+
+extension SearchAlgorithm {
+    /**
+     题目：矩阵中的路径
+     描述：请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以
+          从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条
+          路径经过了矩阵中的某一个格子，则该路径不能再进入该格子。
+     解法：使用深度优先遍历(DFS)遍历，上下左右四格方向依次遍历，访问过的做标记
+     */
+    static func exist(board: inout [[Character]], word: String) -> Bool {
+        var words = word.map{ $0 }
+        for i in 0..<board.count {
+            for j in 0..<board[0].count {
+                if _dfs(board: &board, word: &words, i: i, j: j, k: 0) {
+                    return true
+                }
+            }
+        }
+        
+        return false
+    }
+    
+    static func _dfs(board: inout [[Character]], word: inout [Character], i: Int, j: Int, k: Int) -> Bool {
+        // 判断是否超出边界，当前单词是否匹配
+        if i >= board.count || i < 0 ||
+            j >= board[0].count || j < 0 ||
+            board[i][j] != word[k] {
+            return false
+        }
+        
+        if (k == word.count - 1) {
+            return true
+        }
+        
+        let temp = board[i][j]
+        // 标志已访问
+        board[i][j] = "/"
+        let res = _dfs(board: &board, word: &word, i: i+1, j: j, k: k+1) ||
+            _dfs(board: &board, word: &word, i: i-1, j: j, k: k+1) ||
+            _dfs(board: &board, word: &word, i: i, j: j+1, k: k+1) ||
+            _dfs(board: &board, word: &word, i: i, j: j-1, k: k+1)
+        
+        board[i][j] = temp
+        
+        return res
+    }
 }

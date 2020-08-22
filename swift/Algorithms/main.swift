@@ -172,3 +172,8 @@ _TreeTests.testSerialize()
 _TreeTests.testKthNodeOfBinarySearchTree()
 
 print(ArrayAlgorithm.maxNumbersOfWindows(numbers: [2, 3, 4, 2, 6, 2, 5, 1], windowSize: 3))
+
+_TreeTests.testPrintZStyle()
+
+
+SearchAlgorithmTest.testStringExist()

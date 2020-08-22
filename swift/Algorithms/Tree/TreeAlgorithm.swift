@@ -520,3 +520,54 @@ extension TreeAlgorithm {
         _middleOrderVisit(node: node?.right)
     }
 }
+
+
+extension TreeAlgorithm {
+    /**
+     题目：按之字形顺序打印二叉树
+     描述：请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，
+          第三行按照从左到右的顺序打印，其他行以此类推。
+     解法：使用两个栈先左后右再左依次遍历
+     */
+    static func printZStyle(root: TreeNode?) -> [Int] {
+        if root == nil {
+            return []
+        }
+        
+        var stack: [TreeNode] = []
+        var level: [TreeNode] = []
+        stack.append(root!)
+        var res: [Int] = []
+        var isReverse = true
+        while !stack.isEmpty {
+            while !stack.isEmpty {
+                let node = stack.removeLast()
+                res.append(node.value)
+                
+                if !isReverse {
+                    if let right = node.right {
+                        level.append(right)
+                    }
+                    
+                    if let left = node.left {
+                        level.append(left)
+                    }
+                } else {
+                    if let left = node.left {
+                        level.append(left)
+                    }
+                    
+                    if let right = node.right {
+                        level.append(right)
+                    }
+                }
+            }
+            
+            stack = level
+            level = []
+            isReverse = !isReverse
+        }
+        
+        return res
+    }
+}

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		542E0B52244D523200003C1D /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E0B51244D523200003C1D /* Queue.swift */; };
 		5440335324E53A1700549EF8 /* StringAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5440335224E53A1700549EF8 /* StringAlgorithm.swift */; };
-		5495C52724528F13002A1DF5 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5495C52624528F13002A1DF5 /* Search.swift */; };
+		5495C52724528F13002A1DF5 /* SearchAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5495C52624528F13002A1DF5 /* SearchAlgorithm.swift */; };
 		54F54BC624E397BD00EED7A8 /* ArrayAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F54BC524E397BC00EED7A8 /* ArrayAlgorithm.swift */; };
 		D703ECC8246FB712003D4ABA /* ListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703ECC7246FB712003D4ABA /* ListNode.swift */; };
 		D703ECCA246FC034003D4ABA /* ListNodeAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703ECC9246FC034003D4ABA /* ListNodeAlgorithm.swift */; };
@@ -36,6 +36,7 @@
 		D755B6BA2438686C007F88A5 /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755B6B92438686C007F88A5 /* LRUCache.swift */; };
 		D799F570245354A5009CD99E /* JumpFloor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D799F56F245354A5009CD99E /* JumpFloor.swift */; };
 		D799F57224542361009CD99E /* RectRecover.swift in Sources */ = {isa = PBXBuildFile; fileRef = D799F57124542361009CD99E /* RectRecover.swift */; };
+		D7AA5EC424F125960075B6C7 /* SearchAlgorithmTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AA5EC324F125960075B6C7 /* SearchAlgorithmTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,7 +54,7 @@
 /* Begin PBXFileReference section */
 		542E0B51244D523200003C1D /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		5440335224E53A1700549EF8 /* StringAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringAlgorithm.swift; sourceTree = "<group>"; };
-		5495C52624528F13002A1DF5 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		5495C52624528F13002A1DF5 /* SearchAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAlgorithm.swift; sourceTree = "<group>"; };
 		54F54BC524E397BC00EED7A8 /* ArrayAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayAlgorithm.swift; sourceTree = "<group>"; };
 		D703ECC7246FB712003D4ABA /* ListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNode.swift; sourceTree = "<group>"; };
 		D703ECC9246FC034003D4ABA /* ListNodeAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNodeAlgorithm.swift; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		D755B6B92438686C007F88A5 /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
 		D799F56F245354A5009CD99E /* JumpFloor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpFloor.swift; sourceTree = "<group>"; };
 		D799F57124542361009CD99E /* RectRecover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectRecover.swift; sourceTree = "<group>"; };
+		D7AA5EC324F125960075B6C7 /* SearchAlgorithmTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAlgorithmTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,8 +178,9 @@
 		D7150AAA245D767900849E70 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				5495C52624528F13002A1DF5 /* Search.swift */,
+				5495C52624528F13002A1DF5 /* SearchAlgorithm.swift */,
 				D7150AAB245D768E00849E70 /* BinarySearch.swift */,
+				D7AA5EC324F125960075B6C7 /* SearchAlgorithmTest.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -343,7 +346,7 @@
 				D7150AAC245D768E00849E70 /* BinarySearch.swift in Sources */,
 				D755B6BA2438686C007F88A5 /* LRUCache.swift in Sources */,
 				D7150AEC2461B04500849E70 /* PowAlgorithm.swift in Sources */,
-				5495C52724528F13002A1DF5 /* Search.swift in Sources */,
+				5495C52724528F13002A1DF5 /* SearchAlgorithm.swift in Sources */,
 				D7150ACD246109E400849E70 /* DuplicateNumber.swift in Sources */,
 				D703ECCA246FC034003D4ABA /* ListNodeAlgorithm.swift in Sources */,
 				542E0B52244D523200003C1D /* Queue.swift in Sources */,
@@ -354,6 +357,7 @@
 				D755B6B324386818007F88A5 /* main.swift in Sources */,
 				D703ECD22470ED80003D4ABA /* TreeNode.swift in Sources */,
 				D703ECD02470ED75003D4ABA /* TreeAlgorithm.swift in Sources */,
+				D7AA5EC424F125960075B6C7 /* SearchAlgorithmTest.swift in Sources */,
 				5440335324E53A1700549EF8 /* StringAlgorithm.swift in Sources */,
 				D703ECD42470EEB4003D4ABA /* _TreeTests.swift in Sources */,
 				D7150AA2245BC5AF00849E70 /* GreedyMoney.swift in Sources */,

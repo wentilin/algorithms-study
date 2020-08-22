@@ -206,3 +206,26 @@ extension _TreeTests {
         print(TreeAlgorithm.kthNodeOf(binarySearchTree: _buildBinarySearchTree(), k: 3)?.value)
     }
 }
+
+
+extension _TreeTests {
+    static func testPrintZStyle() {
+        let node1 = TreeNode(value: 8)
+        let node2 = TreeNode(value: 6)
+        let node3 = TreeNode(value: 10)
+        let node4 = TreeNode(value: 5)
+        let node5 = TreeNode(value: 7)
+        let node6 = TreeNode(value: 9)
+        let node7 = TreeNode(value: 11)
+
+        node1.left = node2
+        node1.right = node3
+
+        node2.left = node4
+        node2.right = node5
+
+        node3.left = node6
+        node3.right = node7
+        print(TreeAlgorithm.printZStyle(root: node1))
+    }
+}
