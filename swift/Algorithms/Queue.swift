@@ -41,3 +41,96 @@ struct Queue<Element> {
         return _stack2.removeLast()
     }
 }
+
+
+
+class Deque: NSObject {
+    private var head: DeListNode
+    private var tail: DeListNode
+    
+    var count: Int {
+        return _count_
+    }
+    
+    var isEmpty: Bool {
+        return _count_ == 0
+    }
+    
+    var first: Int {
+        precondition(_count_ > 0)
+        
+        return head.next!.val
+    }
+    
+    var last: Int {
+        precondition(_count_ > 0)
+        
+        return tail.previous!.val
+    }
+    
+    override init() {
+        head = .init(val: 0)
+        tail = .init(val: 0)
+        
+        head.next = tail
+        tail.previous = head
+    }
+    
+    func pushFront(value: Int) {
+        let node = DeListNode(val: value)
+        
+        node.next = head.next
+        head.next?.previous = node
+        
+        head.next = node
+        node.previous = head
+        
+        _count_ += 1
+    }
+    
+    func pushBack(value: Int) {
+        let node = DeListNode(val: value)
+        
+        tail.previous?.next = node
+        node.previous = tail.previous
+        
+        node.next = tail
+        tail.previous = node
+        
+        _count_ += 1
+    }
+    
+    @discardableResult
+    func popFront() -> Int {
+        precondition(_count_ > 0)
+        
+        let node = head.next
+        node?.next?.previous = head
+        head.next = node?.next
+        
+        node?.next = nil
+        node?.previous = nil
+        
+        _count_ -= 1
+        
+        return node!.val
+    }
+    
+    @discardableResult
+    func popBack() -> Int {
+        precondition(_count_ > 0)
+        
+        let node = tail.previous
+        node?.previous?.next = tail
+        tail.previous = node?.previous
+        
+        node?.previous = nil
+        node?.next = nil
+        
+        _count_ -= 1
+        
+        return node!.val
+    }
+    
+    private var _count_: Int = 0
+}

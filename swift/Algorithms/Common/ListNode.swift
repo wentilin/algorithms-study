@@ -18,6 +18,18 @@ class ListNode: NSObject {
     }
 }
 
+class DeListNode: NSObject {
+    var val: Int
+    var next: DeListNode?
+    var previous: DeListNode?
+    
+    init(val: Int, next: DeListNode? = nil, previous: DeListNode? = nil) {
+        self.val = val
+        self.next = next
+        self.previous = previous
+    }
+}
+
 extension ListNode {
     override var description: String {
         var des: String = "\(val)"

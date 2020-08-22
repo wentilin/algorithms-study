@@ -170,3 +170,5 @@ print(StringAlgorithm.stringToInt(str: "1234"))
 _TreeTests.testSerialize()
 
 _TreeTests.testKthNodeOfBinarySearchTree()
+
+print(ArrayAlgorithm.maxNumbersOfWindows(numbers: [2, 3, 4, 2, 6, 2, 5, 1], windowSize: 3))

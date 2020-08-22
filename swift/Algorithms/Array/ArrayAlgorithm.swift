@@ -267,3 +267,51 @@ extension ArrayAlgorithm {
         return res
     }
 }
+
+extension ArrayAlgorithm {
+    /**
+     题目：滑动窗口的最大值
+     描述：给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组
+          {2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}；
+          针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}，
+          {2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。
+          窗口大于数组长度的时候，返回空
+     解法：使用双向链表记录当前窗口的索引，链表首位是当前窗口的最大值索引，每次移动窗口都会把尾部索引元素小于下一个元素的
+          的索引移除
+     */
+    static func maxNumbersOfWindows(numbers: [Int], windowSize: Int) -> [Int] {
+        if numbers.count < windowSize || windowSize == 0 {
+            return []
+        }
+        
+        // 数组模拟双向队列
+        let deque: Deque = .init()
+        
+        // 初始化队列
+        for i in 0..<windowSize {
+            // 从后移除比当前数小的索引
+            while !deque.isEmpty && numbers[i] > numbers[deque.last] {
+                deque.popBack()
+            }
+            
+            deque.pushBack(value: i)
+        }
+        var res: [Int] = [numbers[deque.first]]
+        for i in windowSize..<numbers.count {
+            // 队首元素小于等于当前索引则移除
+            if !deque.isEmpty && deque.first <= i - windowSize {
+                deque.popFront()
+            }
+            
+            // 从后移除比当前数小的索引
+            while !deque.isEmpty && numbers[i] > numbers[deque.last] {
+                deque.popBack()
+            }
+            
+            deque.pushBack(value: i)
+            res.append(numbers[deque.first])
+        }
+        
+        return res
+    }
+}
