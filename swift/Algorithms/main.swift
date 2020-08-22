@@ -168,3 +168,5 @@ print(StringAlgorithm.reverseSentence(str: "  "))
 print(StringAlgorithm.stringToInt(str: "1234"))
 
 _TreeTests.testSerialize()
+
+_TreeTests.testKthNodeOfBinarySearchTree()

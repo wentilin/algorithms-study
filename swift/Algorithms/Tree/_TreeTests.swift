@@ -200,3 +200,9 @@ extension _TreeTests {
         print(TreeAlgorithm.deserialize(data: serializeData))
     }
 }
+
+extension _TreeTests {
+    static func testKthNodeOfBinarySearchTree() {
+        print(TreeAlgorithm.kthNodeOf(binarySearchTree: _buildBinarySearchTree(), k: 3)?.value)
+    }
+}

@@ -474,3 +474,49 @@ extension TreeAlgorithm {
         return root
     }
 }
+
+extension TreeAlgorithm {
+    /**
+     题目：二叉搜索树的第k个结点
+     描述：给定一棵二叉搜索树，请找出其中的第k小的结点。例如， （5，3，7，2，4，6，8）
+          中，按结点数值大小顺序第三小结点的值为4。
+     解法：迭代法中序遍历到第k个节点
+     */
+    static func kthNodeOf(binarySearchTree root: TreeNode?, k: Int) -> TreeNode? {
+        if root == nil {
+            return nil
+        }
+        
+        var stack: [TreeNode] = []
+        var node: TreeNode? = root
+        var i = 1
+        while node != nil || !stack.isEmpty {
+            while node != nil {
+                stack.append(node!)
+                node = node?.left
+            }
+            
+            if !stack.isEmpty {
+                node = stack.removeLast()
+                if i == k {
+                    return node
+                }
+                node = node?.right
+                
+                i += 1
+            }
+        }
+        
+        return nil
+    }
+    
+    static func _middleOrderVisit(node: TreeNode?) {
+        if node == nil {
+            return
+        }
+        
+        _middleOrderVisit(node: node?.left)
+        print(node?.value)
+        _middleOrderVisit(node: node?.right)
+    }
+}
