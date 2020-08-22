@@ -359,3 +359,64 @@ extension ArrayAlgorithm {
         return res
     }
 }
+
+extension ArrayAlgorithm {
+    /**
+     题目：数组中的逆序对
+     描述：在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。
+          输入一个数组,求出这个数组中的逆序对的总数P。
+     解法：使用归并排序，右边元素归并回去时计算逆序对
+     */
+    static func inversePairs(of array: [Int]) -> Int {
+        if array.count < 2 {
+            return 0
+        }
+        
+        var copy = array
+        var temp = Array(repeating: 0, count: array.count)
+        return _reversePairs(nums: &copy, left: 0, right: array.count - 1, temp: &temp)
+    }
+    
+    private static func _reversePairs(nums: inout [Int], left: Int, right: Int, temp: inout [Int]) -> Int {
+        if left == right {
+            return 0
+        }
+        
+        let mid = left + (right - left) / 2
+        let leftPairs = _reversePairs(nums: &nums, left: left, right: mid, temp: &temp)
+        let rightPairs = _reversePairs(nums: &nums, left: mid + 1, right: right, temp: &temp)
+        
+        let crossPairs = _mergeAndCount(nums: &nums, left: left, mid: mid, right: right, temp: &temp)
+        return leftPairs + rightPairs + crossPairs
+    }
+    
+    private static func _mergeAndCount(nums: inout [Int], left: Int, mid: Int, right: Int, temp: inout [Int]) -> Int {
+        for i in left...right {
+            temp[i] = nums[i]
+        }
+        
+        var i = left
+        var j = mid + 1
+        var count = 0
+        for k in left...right {
+            if i == mid + 1 {
+                nums[k] = temp[j]
+                j += 1
+            } else if j == right + 1 {
+                nums[k] = temp[i]
+                i += 1
+            } else if temp[i] <= temp[j] {
+                nums[k] = temp[i]
+                i += 1
+            } else {
+                nums[k] = temp[j]
+                j += 1
+                
+                // 比所有的到mid-i都大
+                count += (mid - i + 1)
+            }
+        }
+        
+        return count
+    }
+}
