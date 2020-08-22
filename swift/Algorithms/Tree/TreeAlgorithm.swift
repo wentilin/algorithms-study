@@ -413,3 +413,64 @@ extension TreeAlgorithm {
         miOrderVisit(pRootOfTree: pRootOfTree?.right)
     }
 }
+
+
+extension TreeAlgorithm {
+    /**
+     题目：序列化二叉树
+     描述：请实现两个函数，分别用来序列化和反序列化二叉树
+          二叉树的序列化是指：把一棵二叉树按照某种遍历方式的结果以某种格式保存为字符串，
+          从而使得内存中建立起来的二叉树可以持久保存。序列化可以基于先序、中序、后序、
+          层序的二叉树遍历方式来进行修改，序列化的结果是一个字符串，序列化时通过 某种符
+          号表示空节点（#），以 ！ 表示一个结点值的结束（value!）。
+          二叉树的反序列化是指：根据某种遍历顺序得到的序列化字符串结果str，重构二叉树。
+          例如，我们可以把一个只有根节点为1的二叉树序列化为"1,"，然后通过自己的函数来解析回这个二叉树
+     解法：使用BFS遍历树
+     */
+    static func serialize(root: TreeNode?) -> String {
+        if root == nil {
+            return "[]"
+        }
+        
+        var queue: [TreeNode?] = [root!]
+        var res: [String] = []
+        while !queue.isEmpty {
+            if let node = queue.removeFirst() {
+                res.append("\(node.value)")
+                queue.append(node.left)
+                queue.append(node.right)
+            } else {
+                res.append("null")
+            }
+        }
+        
+        return "[" + res.joined(separator: ",") + "]"
+    }
+    
+    static func deserialize(data: String) -> TreeNode? {
+        if data == "[]" {
+            return nil
+        }
+        
+        let values = data.replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "").split(separator: ",")
+        let root = TreeNode(value: Int(values[0])!)
+        var queue: [TreeNode] = [root]
+        var i = 1
+        while !queue.isEmpty {
+            let node = queue.removeFirst()
+            if values[i] != "null" {
+                node.left = TreeNode(value: Int(values[i])!)
+                queue.append(node.left!)
+            }
+            
+            i += 1
+            if values[i] != "null" {
+                node.right = TreeNode(value: Int(values[i])!)
+                queue.append(node.right!)
+            }
+            i += 1
+        }
+        
+        return root
+    }
+}

@@ -192,3 +192,11 @@ extension _TreeTests {
         return root
     }
 }
+
+extension _TreeTests {
+    static func testSerialize() {
+        let serializeData = TreeAlgorithm.serialize(root: _buildSymmetricTree())
+        print(serializeData)
+        print(TreeAlgorithm.deserialize(data: serializeData))
+    }
+}

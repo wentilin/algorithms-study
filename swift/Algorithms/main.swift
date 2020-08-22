@@ -166,3 +166,5 @@ print(SomeAlgorithms.getUglyNumber(index: 6))
 print(StringAlgorithm.reverseSentence(str: "  "))
 
 print(StringAlgorithm.stringToInt(str: "1234"))
+
+_TreeTests.testSerialize()
