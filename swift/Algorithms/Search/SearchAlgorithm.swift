@@ -195,3 +195,37 @@ extension SearchAlgorithm {
         return res
     }
 }
+
+extension SearchAlgorithm {
+    /**
+     题目：机器人的运动范围
+     描述：地上有一个m行和n列的方格。一个机器人从坐标0,0的格子开始移动，每一次只能向左，右，上，
+          下四个方向移动一格，但是不能进入行坐标和列坐标的数位之和大于k的格子。 例如，当k为18时，机器
+          人能够进入方格（35,37），因为3+5+3+7 = 18。但是，它不能进入方格（35,38），因为3+5+3+8 = 19。
+          请问该机器人能够达到多少个格子？
+     解法：使用深度优先遍历，因为往左往下递增，所以只需往左往下走
+     */
+    static func movingCount(m: Int, n: Int, k: Int) -> Int {
+        var visited: [[Bool]] = Array(repeating: Array(repeating: false, count: n), count: m)
+        return _movingDFS(visited: &visited, i: 0, j: 0, k: k)
+    }
+    
+    static func _movingDFS(visited: inout [[Bool]], i: Int, j: Int, k: Int) -> Int {
+        if i >= visited.count || j >= visited[0].count || _sum(i) + _sum(j) > k || visited[i][j] {
+            return 0
+        }
+        visited[i][j] = true
+        return 1 + _movingDFS(visited: &visited, i: i+1, j: j, k: k) + _movingDFS(visited: &visited, i: i, j: j+1, k: k)
+    }
+    
+    static func _sum(_ number: Int) -> Int {
+        var sum = 0
+        var x = number
+        while x != 0 {
+            sum += (x % 10)
+            x = x / 10
+        }
+        
+        return sum
+    }
+}

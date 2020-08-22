@@ -177,3 +177,5 @@ _TreeTests.testPrintZStyle()
 
 
 SearchAlgorithmTest.testStringExist()
+
+SearchAlgorithmTest.testMovingCount()

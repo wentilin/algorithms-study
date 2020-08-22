@@ -16,3 +16,10 @@ class SearchAlgorithmTest {
         print("Exsit: \(SearchAlgorithm.exist(board: &board, word: "bcced"))")
     }
 }
+
+
+extension SearchAlgorithmTest {
+    static func testMovingCount() {
+        print("moving count: \(SearchAlgorithm.movingCount(m: 3, n: 3, k: 4))")
+    }
+}
