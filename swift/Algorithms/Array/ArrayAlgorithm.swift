@@ -420,3 +420,101 @@ extension ArrayAlgorithm {
         return count
     }
 }
+
+extension ArrayAlgorithm {
+    /**
+     题目：数组中重复的数字
+     描述：在一个长度为n的数组里的所有数字都在0到n-1的范围内。
+          数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数
+          组中任意一个重复的数字。
+          例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是第一个重复的数字2。
+     解法：使用hash表
+     */
+    static func duplicateNumber(at numbers: [Int]) -> Int? {
+        var tmp: [Int] = [Int](repeating: 0, count: numbers.count)
+        
+        for i in 0..<numbers.count {
+            let number = numbers[i]
+            if tmp[number] > 0 {
+                return number
+            }
+            
+            tmp[number] += 1
+        }
+        
+        return nil
+    }
+}
+
+extension ArrayAlgorithm {
+    /*
+    给定一个数组A[0,1,...,n-1],请构建一个数组B[0,1,...,n-1],
+    其中B中的元素B[i]=A[0]*A[1]*...*A[i-1]*A[i+1]*...*A[n-1]。
+    不能使用除法。（注意：规定B[0] = A[1] * A[2] * ... * A[n-1]，
+    B[n-1] = A[0] * A[1] * ... * A[n-2];）
+    解法：
+        左边：B[i] = A[0]*A[1]*...*A[i-1]
+        右边：A[i+1]*A[i+2]*...*A[n-1]
+    */
+    public static func multiply(A: [Int]) -> [Int] {
+        var B: [Int] = Array(repeating: 0, count: A.count);
+        var res = 1;
+        // 左边
+        for i in 0..<A.count {
+            B[i] = res;
+            res *= A[i];
+        }
+        // 右边
+        res = 1;
+        for i in 0..<A.count {
+            B[A.count-i-1] *= res;
+            res *= A[A.count-i-1];
+        }
+
+        return B;
+    }
+}
+
+extension ArrayAlgorithm {
+    /// 一个整型数组里除了两个数字之外，其他的数字都出现了两次。
+    /// 请写程序找出这两个只出现一次的数字。
+    /// 解法：1. 数组中相同的数异或(^)后会抵消，最后剩下的结果是两个不同数的异或
+    ///      2. 找到第一个异或为1的位，按此换分为两个数组，改位置具有相同1的分到了一组，
+    ///        都为0的分到了一组，组内元素分别异或最后的结果是两个不同的数
+    static func findNumsAppearOnce(numbers: [Int]) -> (Int, Int) {
+        precondition(numbers.count > 1)
+        
+        if numbers.count == 2 {
+            return (numbers[0], numbers[1])
+        }
+        
+        let bitRes = numbers.reduce(0, { $0 ^ $1 })
+        let index = _first1(by: bitRes)
+        var num1: Int = 0
+        var num2: Int = 0
+        for num in numbers {
+            if _isBit1(target: num, index: index) {
+                num1 ^= num
+            } else {
+                num2 ^= num
+            }
+        }
+        
+        return (num1, num2)
+    }
+    
+    private static func _first1(by number: Int) -> Int {
+        var index = 0
+        var res = number
+        while res & 1 == 0, index < 64 {
+            res >>= 1
+            index += 1
+        }
+        
+        return index
+    }
+    
+    private static func _isBit1(target: Int, index: Int) -> Bool {
+        return ((target >> index) & 1) == 1
+    }
+}

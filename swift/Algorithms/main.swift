@@ -49,7 +49,7 @@ let moneyMaps: [MoneyMap] = [.init(kind: 1, count: 5),
                              .init(kind: 10, count: 2),
                              .init(kind: 50, count: 3),
                              .init(kind: 100, count: 5)]
-print("GreedyMoney:\(GreedyMoney.solve(money: 456, moneyMaps: moneyMaps))")
+print("GreedyMoney:\(SomeAlgorithms.greedyMoney(money: 456, moneyMaps: moneyMaps))")
 
 let triangle = [[2],
                [3,4],
@@ -67,11 +67,11 @@ var arrayToSort: [Int] = [10, 3, 5, 6, 2, 7, 1, 4, 8, 9]
 SortAlgorithm.quickSort(array: &arrayToSort, low: 0, high: arrayToSort.count-1)
 print("QuickSort: \(arrayToSort)")
 
-print("DuplicateNumber: \(DuplicateNumber.duplicateNumber(at: [0, 3, 2, 4, 1, 2]) ?? -1)")
+print("DuplicateNumber: \(ArrayAlgorithm.duplicateNumber(at: [0, 3, 2, 4, 1, 2]) ?? -1)")
 
 let base: Double = -2
 let exponent: Int = -3
-print("PowAlgorithm.pow(\(base), \(exponent))=\(PowAlgorithm.pow(base: base, exponent: exponent))")
+print("PowAlgorithm.pow(\(base), \(exponent))=\(NumberAlgorithm.pow(base: base, exponent: exponent))")
 
 
 ListNodeTests.startTest()
@@ -94,37 +94,37 @@ _TreeTests.testDepth()
 
 ListNodeTests.testCloneRandomListNode()
 
-print("Add(5, 70)=\(SomeAlgorithms.add(5, 70))")
+print("Add(5, 70)=\(NumberAlgorithm.add(5, 70))")
 
 
 let numbers = [123, 42, 123, 56, 42, 89, 56, 100]
-let res = SomeAlgorithms.findNumsAppearOnce(numbers: numbers)
+let res = ArrayAlgorithm.findNumsAppearOnce(numbers: numbers)
 print("findNumsAppearOnce<\(numbers)>: \(res)")
 
-print("multiply:\(SomeAlgorithms.multiply(A: [1, 2, 3, 4, 5]))")
+print("multiply:\(ArrayAlgorithm.multiply(A: [1, 2, 3, 4, 5]))")
 
 print("cut rope(10): \(SomeAlgorithms.cutRope(target: 10))")
 
 var num1 = 234
 var num2 = 564
 print("swap \(num1) \(num2):")
-SomeAlgorithms.swap(num1: &num1, num2: &num2)
+NumberAlgorithm.swap(num1: &num1, num2: &num2)
 print("\(num1), \(num2)")
 
 print(StackAlgorithm.isPopOrder(pushOrders: [1, 2, 3, 4, 5], popOrders: [4, 3, 5, 1, 2]))
 
-print("\(ExpressionAlgorithms.isNumeric(of: ""))")
-print(".1:\(ExpressionAlgorithms.isNumeric(of: ".1"))")
-print("+.1:\(ExpressionAlgorithms.isNumeric(of: "+.1"))")
-print("+100:\(ExpressionAlgorithms.isNumeric(of: "+100"))")
-print("5e2:\(ExpressionAlgorithms.isNumeric(of: "5e2"))")
-print("-123:\(ExpressionAlgorithms.isNumeric(of: "-123"))")
-print("3.14159:\(ExpressionAlgorithms.isNumeric(of: "3.14159"))")
-print("-1E-16:\(ExpressionAlgorithms.isNumeric(of: "-1E-16"))")
-print("12e:\(ExpressionAlgorithms.isNumeric(of: "12e"))")
-print("1a3.14:\(ExpressionAlgorithms.isNumeric(of: "1a3.14"))")
-print("+-5:\(ExpressionAlgorithms.isNumeric(of: "+-5"))")
-print("12e+4.3:\(ExpressionAlgorithms.isNumeric(of: "12e+4.3"))")
+print("\(StringAlgorithm.isNumeric(of: ""))")
+print(".1:\(StringAlgorithm.isNumeric(of: ".1"))")
+print("+.1:\(StringAlgorithm.isNumeric(of: "+.1"))")
+print("+100:\(StringAlgorithm.isNumeric(of: "+100"))")
+print("5e2:\(StringAlgorithm.isNumeric(of: "5e2"))")
+print("-123:\(StringAlgorithm.isNumeric(of: "-123"))")
+print("3.14159:\(StringAlgorithm.isNumeric(of: "3.14159"))")
+print("-1E-16:\(StringAlgorithm.isNumeric(of: "-1E-16"))")
+print("12e:\(StringAlgorithm.isNumeric(of: "12e"))")
+print("1a3.14:\(StringAlgorithm.isNumeric(of: "1a3.14"))")
+print("+-5:\(StringAlgorithm.isNumeric(of: "+-5"))")
+print("12e+4.3:\(StringAlgorithm.isNumeric(of: "12e+4.3"))")
 
 let tree = TreeAlgorithm.reConstructBinaryTree(preOrders: [1, 2, 4, 7, 3, 5, 6, 8], inOrders: [4, 7, 2, 1, 5, 3, 8, 6])
 print(tree!)
@@ -141,7 +141,7 @@ print("leftRotate<abcd, 2>: \(StringAlgorithm.leftRotateString("abcd", n: 2))")
 
 print(ArrayAlgorithm.moreThanHalfItemIn(array: [1, 2, 2, 4, 5, 3, 2, 2, 2, 2]))
 
-print(SomeAlgorithms.findContinuousSequence(for: 100))
+print(NumberAlgorithm.findContinuousSequence(for: 100))
 
 print(ArrayAlgorithm.findGreatestSumOfSubArray(array: [6, -3, -2, 7, -15, 1, 2, 2]))
 
@@ -149,7 +149,7 @@ _TreeTests.testIsSymmetric()
 
 _TreeTests.testConvert()
 
-print(SomeAlgorithms.numberOf1ToBinary(n: -2313))
+print(NumberAlgorithm.numberOf1ToBinary(n: -2313))
 
 ListNodeTests.testDeleteDuplicateNodeInSortedLinkedList()
 
@@ -161,7 +161,7 @@ print(StringAlgorithm.firstNotRepeatingChar(str: "abcdacd"))
 
 print(ArrayAlgorithm.printMinConbinatedNumber(numbers: [3, 32, 321]))
 
-print(SomeAlgorithms.getUglyNumber(index: 6))
+print(NumberAlgorithm.getUglyNumber(index: 6))
 
 print(StringAlgorithm.reverseSentence(str: "  "))
 
