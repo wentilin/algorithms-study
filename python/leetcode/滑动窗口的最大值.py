@@ -10,6 +10,20 @@
 
 # -*- coding:utf-8 -*-
 class Solution:
+    # 方法：动态规划
+    # 将数组分成大小相等的块，每个块都可以理解为有两个数组 left 和 right。
+    # left 方向从左到右，right 相反。left[i]是指块从开始到下标 i 的最大元素，right[j]是指块从开始到下标 j 的最大元素。
+    # 假设滑动窗口的范围是[i, j]，滑动窗口中的最大值就是 max(right[i], left[j])
     def maxInWindows(self, num, size):
-        # write code here
+        if not num or len(num) == 0 or size <= 0:
+            return []
+
+        if size == 1:
+            return num
+
+        n = len(num)
+        left = [0] * n
+        left[0] = num[0]
+        right = [0] * len(num)
+
 
