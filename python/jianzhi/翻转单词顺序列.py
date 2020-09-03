@@ -5,8 +5,12 @@
 Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？
 """
 
+
 # -*- coding:utf-8 -*-
 class Solution:
+    # 方法: 双指针，一起从尾部出发往前移动
+    # time: O(n)
+    # space: O(n)
     def ReverseSentence(self, s):
         # s = "   "，output "   "
         tmp = s
