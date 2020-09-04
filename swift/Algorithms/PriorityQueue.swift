@@ -59,7 +59,7 @@ class PriorityQueue: CustomStringConvertible {
             let rightChild = 2 * i + 1
             
             // Don't have right child
-            if rightChild > count - 1 {
+            if rightChild > count {
                 if _heap[i] < _heap[leftChild] {
                     _swap(index: i, with: leftChild)
                 }
