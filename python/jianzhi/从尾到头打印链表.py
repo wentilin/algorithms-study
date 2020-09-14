@@ -3,6 +3,7 @@
 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
 """
 
+# 1
 
 # -*- coding:utf-8 -*-
 class ListNode:

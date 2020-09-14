@@ -2,7 +2,7 @@
 """
 输入一个链表，输出该链表中倒数第k个结点。
 """
-
+# 1
 
 class ListNode:
     def __init__(self, x):
@@ -23,7 +23,7 @@ class Solution:
             return None
 
         i, j = head, head
-        step_j = 1
+        step_j = 1  # 走完即为链表长度
         while j.next:
             step_j += 1
             j = j.next
@@ -34,7 +34,7 @@ class Solution:
         if k > step_j:
             return None
 
-        return j if k == 1 else i
+        return i
 
 
 if __name__ == '__main__':

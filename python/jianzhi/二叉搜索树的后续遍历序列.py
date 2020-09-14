@@ -4,6 +4,7 @@
 假设输入的数组的任意两个数字都互不相同。
 """
 
+# 1
 
 # -*- coding:utf-8 -*-
 class Solution1:
@@ -19,10 +20,12 @@ class Solution1:
                 p += 1
             mid = p
 
-            while sequence[p] < sequence[j]:
+            while sequence[p] > sequence[j]:
                 p += 1
 
             return p == j and recur(i, mid - 1) and recur(mid, j - 1)
+        if not sequence:
+            return False
         return recur(0, len(sequence) - 1)
 
 

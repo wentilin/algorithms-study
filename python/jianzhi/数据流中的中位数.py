@@ -5,6 +5,7 @@
 我们使用Insert()方法读取数据流，使用GetMedian()方法获取当前读取数据的中位数。
 """
 
+# 1
 
 # -*- coding:utf-8 -*-
 class Heap:
