@@ -34,6 +34,7 @@
 		D7AA5EC424F125960075B6C7 /* SearchAlgorithmTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AA5EC324F125960075B6C7 /* SearchAlgorithmTest.swift */; };
 		D7AD3C4524F227E2008DE443 /* NumberAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD3C4424F227E2008DE443 /* NumberAlgorithm.swift */; };
 		D7AD3C7125170FCE008DE443 /* DynamicAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD3C7025170FCE008DE443 /* DynamicAlgorithm.swift */; };
+		D7AD3CA3251903A1008DE443 /* LWHDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AD3CA1251903A1008DE443 /* LWHDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +79,9 @@
 		D7AA5EC324F125960075B6C7 /* SearchAlgorithmTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAlgorithmTest.swift; sourceTree = "<group>"; };
 		D7AD3C4424F227E2008DE443 /* NumberAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberAlgorithm.swift; sourceTree = "<group>"; };
 		D7AD3C7025170FCE008DE443 /* DynamicAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAlgorithm.swift; sourceTree = "<group>"; };
+		D7AD3CA0251903A1008DE443 /* Algorithms-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Algorithms-Bridging-Header.h"; sourceTree = "<group>"; };
+		D7AD3CA1251903A1008DE443 /* LWHDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWHDictionary.m; sourceTree = "<group>"; };
+		D7AD3CA2251903A1008DE443 /* LWHDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWHDictionary.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +213,7 @@
 		D755B6B124386818007F88A5 /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				D7AD3C9F25190381008DE443 /* Dictionary */,
 				D7AD3C4624F22BD8008DE443 /* Number */,
 				5440335124E53A0300549EF8 /* String */,
 				54F54BC424E3977300EED7A8 /* Array */,
@@ -225,6 +230,7 @@
 				D746110F248222730062DCAE /* PriorityQueue.swift */,
 				D7461111248240F80062DCAE /* QueueTest.swift */,
 				D71408EA24C2E4CA000C54E2 /* SomeAlgorithms.swift */,
+				D7AD3CA0251903A1008DE443 /* Algorithms-Bridging-Header.h */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -235,6 +241,15 @@
 				D7AD3C4424F227E2008DE443 /* NumberAlgorithm.swift */,
 			);
 			path = Number;
+			sourceTree = "<group>";
+		};
+		D7AD3C9F25190381008DE443 /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				D7AD3CA2251903A1008DE443 /* LWHDictionary.h */,
+				D7AD3CA1251903A1008DE443 /* LWHDictionary.m */,
+			);
+			path = Dictionary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +304,7 @@
 					};
 					D755B6AE24386818007F88A5 = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -358,6 +374,7 @@
 				D7AD3C7125170FCE008DE443 /* DynamicAlgorithm.swift in Sources */,
 				D703ECD42470EEB4003D4ABA /* _TreeTests.swift in Sources */,
 				54F54BC624E397BD00EED7A8 /* ArrayAlgorithm.swift in Sources */,
+				D7AD3CA3251903A1008DE443 /* LWHDictionary.m in Sources */,
 				D7150AA4245BE23500849E70 /* TriangleMinPath.swift in Sources */,
 				D7461112248240F80062DCAE /* QueueTest.swift in Sources */,
 			);
@@ -518,10 +535,18 @@
 		D755B6B724386818007F88A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8VBF894SB3;
+				DEVELOPMENT_TEAM = 4EG25ZT9T6;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Algorithms/Algorithms-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -529,10 +554,17 @@
 		D755B6B824386818007F88A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8VBF894SB3;
+				DEVELOPMENT_TEAM = 4EG25ZT9T6;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Algorithms/Algorithms-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

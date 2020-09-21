@@ -191,3 +191,10 @@ print(ArrayAlgorithm.inversePairs(of: [1, 2, 4, 3, 0]))
 print(DynamicAlgorithm.coinChange(coins: [1, 2, 5], amount: 11))
 
 print(DynamicAlgorithm.findTargetSumWays(nums: [1, 1, 1, 1, 1], target: 3))
+
+let dic = LWHDictionary()
+dic.insert("Hello" as NSObjectProtocol, forKey: "asdfsdf" as NSObjectProtocol)
+dic.insert("gogo" as NSObjectProtocol, forKey: "asdfsdf" as NSObjectProtocol)
+dic.insert("lala" as NSObjectProtocol, forKey: "hahaha" as NSObjectProtocol)
+print(dic.getObjectWith("asdfsdf" as NSObjectProtocol))
+print(dic.getObjectWith("hahaha" as NSObjectProtocol))
