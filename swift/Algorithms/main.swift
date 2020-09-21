@@ -186,3 +186,8 @@ print(ArrayAlgorithm.spiralOrder(matrix: [[1, 2, 3, 4],
                                           [13, 14, 15, 16]]))
 
 print(ArrayAlgorithm.inversePairs(of: [1, 2, 4, 3, 0]))
+
+
+print(DynamicAlgorithm.coinChange(coins: [1, 2, 5], amount: 11))
+
+print(DynamicAlgorithm.findTargetSumWays(nums: [1, 1, 1, 1, 1], target: 3))

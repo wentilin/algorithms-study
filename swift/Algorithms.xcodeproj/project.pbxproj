@@ -33,6 +33,7 @@
 		D755B6BA2438686C007F88A5 /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755B6B92438686C007F88A5 /* LRUCache.swift */; };
 		D7AA5EC424F125960075B6C7 /* SearchAlgorithmTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AA5EC324F125960075B6C7 /* SearchAlgorithmTest.swift */; };
 		D7AD3C4524F227E2008DE443 /* NumberAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD3C4424F227E2008DE443 /* NumberAlgorithm.swift */; };
+		D7AD3C7125170FCE008DE443 /* DynamicAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD3C7025170FCE008DE443 /* DynamicAlgorithm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +77,7 @@
 		D755B6B92438686C007F88A5 /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
 		D7AA5EC324F125960075B6C7 /* SearchAlgorithmTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAlgorithmTest.swift; sourceTree = "<group>"; };
 		D7AD3C4424F227E2008DE443 /* NumberAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberAlgorithm.swift; sourceTree = "<group>"; };
+		D7AD3C7025170FCE008DE443 /* DynamicAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAlgorithm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				D7150AA3245BE23500849E70 /* TriangleMinPath.swift */,
 				D7150AA5245C020B00849E70 /* MaxSumOfSubArray.swift */,
 				D7150AA7245C586F00849E70 /* RobotSearchPath.swift */,
+				D7AD3C7025170FCE008DE443 /* DynamicAlgorithm.swift */,
 			);
 			path = DynamicProgramming;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				D703ECD02470ED75003D4ABA /* TreeAlgorithm.swift in Sources */,
 				D7AA5EC424F125960075B6C7 /* SearchAlgorithmTest.swift in Sources */,
 				5440335324E53A1700549EF8 /* StringAlgorithm.swift in Sources */,
+				D7AD3C7125170FCE008DE443 /* DynamicAlgorithm.swift in Sources */,
 				D703ECD42470EEB4003D4ABA /* _TreeTests.swift in Sources */,
 				54F54BC624E397BD00EED7A8 /* ArrayAlgorithm.swift in Sources */,
 				D7150AA4245BE23500849E70 /* TriangleMinPath.swift in Sources */,
