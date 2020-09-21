@@ -3,7 +3,7 @@
 第三行按照从左到右的顺序打印，其他行以此类推。
 """
 
-
+# 1
 # -*- coding:utf-8 -*-
 class TreeNode:
     def __init__(self, x):
