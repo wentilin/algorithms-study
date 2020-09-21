@@ -347,6 +347,23 @@ extension TreeAlgorithm {
         return leftNodes.count == 0 && rightNodes.count == 0
     }
     
+    static func isSymmetricRecursive(of pRoot: TreeNode?) -> Bool {
+        return _checkSymmetric(pRoot1: pRoot, pRoot2: pRoot)
+    }
+    
+    private static func _checkSymmetric(pRoot1: TreeNode?, pRoot2: TreeNode?) -> Bool {
+        if pRoot1 == nil, pRoot2 == nil {
+            return true
+        }
+        
+        if pRoot1 == nil || pRoot2 == nil {
+            return false
+        }
+        
+        return pRoot1!.value == pRoot2!.value &&
+            _checkSymmetric(pRoot1: pRoot1?.left, pRoot2: pRoot2?.right) &&
+            _checkSymmetric(pRoot1: pRoot1?.right, pRoot2: pRoot2?.left)
+    }
 }
 
 extension TreeAlgorithm {
