@@ -4,6 +4,7 @@
 所以错误测试数据的提示是用其他方式显示的，保证传入数据是正确的）
 """
 
+# 1
 
 # -*- coding:utf-8 -*-
 class ListNode:
@@ -22,7 +23,7 @@ class Solution:
 
         p1, p2 = pHead1, pHead2
         while p1 != p2:
-            p1 = pHead2 if not p1 else p1.next
-            p2 = pHead1 if not p2 else p2.next
+            p1 = pHead2 if not p1 else p1.next  # 考虑尾部None
+            p2 = pHead1 if not p2 else p2.next  # 考虑尾部None
 
         return p1

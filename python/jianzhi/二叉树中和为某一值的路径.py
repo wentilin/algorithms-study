@@ -6,6 +6,7 @@
 返回二维列表，内部每个列表表示找到的路径
 """
 
+# 1
 
 # -*- coding:utf-8 -*-
 class TreeNode:
