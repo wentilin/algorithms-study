@@ -571,3 +571,77 @@ extension TreeAlgorithm {
         return res
     }
 }
+
+// MARK: 非递归遍历二叉树
+extension TreeAlgorithm {
+    static func preorderTraverse(_ tree: TreeNode?) -> [Int] {
+        if tree == nil { return [] }
+        
+        var stack: [TreeNode] = []
+        var node: TreeNode? = tree
+        var vals: [Int] = []
+        while node != nil || !stack.isEmpty {
+            while node != nil {
+                stack.append(node!)
+                vals.append(node!.value)
+                node = node?.left
+            }
+            
+            let n = stack.removeLast()
+            node = n.right
+        }
+        
+        return vals
+    }
+    
+    static func inorderTraverse(_ tree: TreeNode?) -> [Int] {
+        if tree == nil { return [] }
+        
+        var stack: [TreeNode] = []
+        var node: TreeNode? = tree
+        var vals: [Int] = []
+        while node != nil || !stack.isEmpty {
+            while node != nil {
+                stack.append(node!)
+                node = node?.left
+            }
+            
+            let n = stack.removeLast()
+            vals.append(n.value)
+            node = n.right
+        }
+        
+        return vals
+    }
+    
+    static func postorderTraverse(_ tree: TreeNode?) -> [Int] {
+        if tree == nil { return [] }
+        
+        var stack: [TreeNode] = []
+        var node: TreeNode? = tree
+        var lastNode: TreeNode? = nil
+        var vals: [Int] = []
+        
+        while node != nil {
+            stack.append(node!)
+            node = node?.left
+        }
+        
+        while !stack.isEmpty {
+            let n = stack.removeLast()
+            if n.right == nil || n.right == lastNode {
+                vals.append(n.value)
+                lastNode = n
+            } else {
+                stack.append(n)
+                node = n.right
+                while node != nil {
+                    stack.append(node!)
+                    node = node?.left
+                }
+            }
+        }
+        
+        return vals
+    }
+}
