@@ -42,7 +42,7 @@ class TreeNode:
 
 
 class Solution:
-    # 二叉树 递归
+    # 二叉树 递归 最低公共结点的值在p,q之间
     # time: O(n) [最坏时树为链表]
     # space: O(n) [最坏时树为链表]
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':

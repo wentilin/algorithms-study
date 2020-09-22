@@ -1,18 +1,19 @@
 """
 https://blog.csdn.net/abcdefg90876/article/details/106990794
-二叉树任意两个节点的最近公共祖先
 如何发现链表中的环
-两数相加
 Dropout实现
-topk-找第k大的数
-用rand5()实现rand3()
-判断对称数字 不能用字符串判断
 a的n次方
-最长不重复子串
 给两颗二叉树，判断B树是否为A的子树
 string转double
-二叉树的之字形遍历
+################ 用rand5()实现rand3()[https://www.cnblogs.com/luxiaoxun/archive/2012/09/10/2678315.html]
+################ 判断对称数字 不能用字符串判断
+################ 最长不重复子串(滑动窗口法：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/hua-dong-chuang-kou-by-powcai/)
+################ 二叉树任意两个节点的最近公共祖先
+################ 两数相加
+################ topk-找第k大的数
+################ 二叉树的之字形遍历
 找出正整数数组中和=K的连续子数组数量
+
 
 https://www.nowcoder.com/discuss/451614?type=3&channel=-2&source_id=discuss_terminal_discuss_hot
 输入二维0/1矩阵，输出同大小的，每个位置代表输入矩阵里距离0的最近距离（bfs）
