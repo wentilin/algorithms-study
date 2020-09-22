@@ -90,6 +90,7 @@ extension _TreeTests {
 extension _TreeTests {
     static func testIsSymmetric() {
         print("isSymmetric:\(TreeAlgorithm.isSymmetric(of: _buildSymmetricTree_1()))")
+        print("isSymmetricRecursive:\(TreeAlgorithm.isSymmetricRecursive(of: _buildSymmetricTree_1()))")
     }
     
     private static func _buildSymmetricTree() -> TreeNode {
