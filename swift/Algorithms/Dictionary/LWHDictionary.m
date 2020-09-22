@@ -43,10 +43,9 @@
 @end
 
 @interface LWHDictionary() {
-    pthread_mutex_t _mutex;
+    NSMutableArray<_Bucket *> *_buckets;
+    pthread_rwlock_t _rwlock;
 }
-
-@property (nonatomic, copy) NSMutableArray<_Bucket *> *buckets;
 
 @end
 
@@ -59,18 +58,18 @@
             [_buckets addObject: [_Bucket null]];
         }
         
-        pthread_mutex_init(&_mutex, NULL);
+        pthread_rwlock_init(&_rwlock, NULL);
     }
     
     return self;
 }
 
 - (void)dealloc {
-    pthread_mutex_destroy(&_mutex);
+    pthread_rwlock_destroy(&_rwlock);
 }
 
 - (void)insertObject:(NSObject *)value forKey:(nonnull NSObject *)key {
-    pthread_mutex_lock(&_mutex);
+    pthread_rwlock_trywrlock(&_rwlock);
     
     NSUInteger hash = [self hash:key] % SIZE;
     
@@ -102,34 +101,34 @@
         }
     }
     
-    pthread_mutex_unlock(&_mutex);
+    pthread_rwlock_unlock(&_rwlock);
 }
 
 - (nullable id<NSObject>)getObjectWith: (id<NSObject>)key {
-    pthread_mutex_lock(&_mutex);
+    pthread_rwlock_tryrdlock(&_rwlock);
     
     NSUInteger hash = [self hash:key] % SIZE;
     if (hash >= _buckets.count) {
-        pthread_mutex_unlock(&_mutex);
+        pthread_rwlock_unlock(&_rwlock);
         return NULL;
     }
     
     _Bucket *bucket = [_buckets objectAtIndex:hash];
     if (bucket.isNull) {
-        pthread_mutex_unlock(&_mutex);
+        pthread_rwlock_unlock(&_rwlock);
         return NULL;
     }
     
     while (bucket != NULL) {
         if ([bucket.key isEqual:key]) {
-            pthread_mutex_unlock(&_mutex);
+            pthread_rwlock_unlock(&_rwlock);
             return bucket.value;
         }
         
         bucket = bucket.next;
     }
     
-    pthread_mutex_unlock(&_mutex);
+    pthread_rwlock_unlock(&_rwlock);
     return NULL;
 }
 
