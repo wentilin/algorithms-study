@@ -230,3 +230,14 @@ extension _TreeTests {
         print(TreeAlgorithm.printZStyle(root: node1))
     }
 }
+
+extension _TreeTests {
+    static func testTrieTree() {
+        let trie = Trie()
+        trie.insert("abcd")
+        trie.insert("afdc")
+        trie.insert("abef")
+        
+        print("find trie: \(trie.find("afdc"))")
+    }
+}
