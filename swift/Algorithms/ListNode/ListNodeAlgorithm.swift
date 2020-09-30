@@ -54,10 +54,7 @@ class ListNodeAlgorithm {
     }
     
     /// 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则
-    static func merge(list1: ListNode?, list2: ListNode?) -> ListNode? {
-        guard list1 != nil else { return list2 }
-        guard list2 != nil else { return list1 }
-        
+    static func mergeTwoLists(list1: ListNode?, list2: ListNode?) -> ListNode? {
         var l1: ListNode? = list1
         var l2: ListNode? = list2
         
@@ -75,13 +72,7 @@ class ListNodeAlgorithm {
             current = current?.next
         }
         
-        if l1 != nil {
-            current?.next = l1
-        }
-        
-        if l2 != nil {
-            current?.next = l2
-        }
+        current?.next = l1 != nil ? l1 : l2
         
         return head.next
     }
@@ -103,6 +94,43 @@ class ListNodeAlgorithm {
             return list2
         }
     }
+    
+    /**
+    题目：合并K个排序链表
+    解法：迭代合并，时间复杂度高
+    */
+    static func mergeKLists(_ lists: [ListNode?]) -> ListNode? {
+        let head = ListNode(val: 0)
+        var current: ListNode? = head
+        var pointers: [ListNode?] = lists
+        while true {
+            var min: ListNode = .init(val: Int.max)
+            var index: Int = 0
+            for (i, p) in pointers.enumerated() {
+                if let _p = p {
+                    if _p.val < min.val {
+                        min = _p
+                        index = i
+                    }
+                }
+            }
+            
+            if min.val != Int.max {
+                current?.next = min
+                current = current?.next
+                pointers[index] = pointers[index]?.next
+                if pointers[index] == nil {
+                    pointers.remove(at: index)
+                }
+            } else {
+                break
+            }
+        }
+        
+        return head.next
+    }
+    
+    
     /// 输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，
     /// 另一个特殊指针random指向一个随机节点），请对此链表进行深拷贝，
     /// 并返回拷贝后的头结点。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）
@@ -272,5 +300,29 @@ extension ListNodeAlgorithm {
         }
         
         return head.next
+    }
+}
+
+extension ListNodeAlgorithm {
+    /**
+     题目：合并K个排序链表
+     解法：递归合并
+     */
+    static func mergeKListsRecursive(_ lists: [ListNode?]) -> ListNode? {
+        return mergeList(lists, lo: 0, hi: lists.count-1)
+    }
+
+    static func mergeList(_ lists: [ListNode?], lo: Int, hi: Int) -> ListNode? {
+        if (lo == hi) {
+            return lists[lo]
+        }
+
+        if (lo > hi) {
+            return nil
+        }
+
+        let mid = (hi - lo) / 2 + lo
+
+        return mergeTwoLists(list1: mergeList(lists, lo: lo, hi: mid), list2: mergeList(lists, lo: mid+1, hi: hi))
     }
 }
