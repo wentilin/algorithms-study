@@ -5,7 +5,7 @@
 例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
 """
 
-# 1
+# 1, 2
 
 # -*- coding:utf-8 -*-
 class TreeNode:
@@ -29,9 +29,9 @@ class Solution:
             return TreeNode(pre[0])
         root = TreeNode(pre[0])
         index = self.find_index(tin, root.val)
-        if index > 0:
+        if index > 0:  # 确保中序遍历有左子树
             root.left = self.construct(pre[1:(index+1)], tin[:index])
-        if index < len(tin) - 1:
+        if index < len(tin) - 1:  # 确保中序遍历有右子树
             root.right = self.construct(pre[(index+1):], tin[(index+1):])
         return root
 

@@ -21,7 +21,7 @@ from collections import deque
     	11 9 7  5
 """
 
-# 1
+# 1, 2
 
 class TreeNode:
     def __init__(self, x):

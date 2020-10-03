@@ -18,6 +18,8 @@ false
 true
 """
 
+# 1
+
 
 class Solution:
     def isValid(self, s):

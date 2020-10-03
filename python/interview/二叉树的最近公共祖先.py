@@ -20,6 +20,7 @@ p、q 为不同节点且均存在于给定的二叉树中。
 
 """
 
+# 1
 
 # Definition for a binary tree node.
 class TreeNode:

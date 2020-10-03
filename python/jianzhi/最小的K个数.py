@@ -4,6 +4,7 @@
 """
 # 1
 
+
 # -*- coding:utf-8 -*-
 class Solution1:
     # 方法: 快排

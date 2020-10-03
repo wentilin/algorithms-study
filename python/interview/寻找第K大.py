@@ -9,6 +9,9 @@
 
 # -*- coding:utf-8 -*-
 
+# 1
+
+
 class Finder:
     def quick_sort(self, a, l, r, K):
         if l > r:

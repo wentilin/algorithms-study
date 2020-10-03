@@ -22,6 +22,8 @@
 {'a1.b4.c0': 7, 'a1.b3': 6, 'a1.b1': 3, 'a1.b0': 2, 'a1.b2.c0': 4, 'a0': 1, 'a2': 5}
 """
 
+# 1
+
 
 def flat(map):
     result = {}
@@ -29,7 +31,6 @@ def flat(map):
     def dfs(map, k_str):
         if isinstance(map, int):
             result[k_str] = map
-            return
         if isinstance(map, dict):
             for index in map:
                 dfs(map[index], k_str + '.' + index)

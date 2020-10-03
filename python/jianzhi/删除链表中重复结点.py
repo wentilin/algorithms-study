@@ -5,7 +5,7 @@
 例如，链表1->2->3->3->4->4->5 处理后为 1->2->5
 """
 
-# 1
+# 1, 2
 
 class ListNode:
     def __init__(self, x):
@@ -21,8 +21,8 @@ class Solution:
         if not pHead or not pHead.next:
             return pHead
 
-        start = ListNode(0) # 重要操作
-        start.next = pHead # 重要操作
+        start = ListNode(0)  # 重要操作
+        start.next = pHead  # 重要操作
         i, j = start, pHead
         while j and j.next:
             if j.next.val != j.val:

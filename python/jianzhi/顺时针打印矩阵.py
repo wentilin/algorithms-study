@@ -5,6 +5,8 @@
 则依次打印出数字1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10.
 """
 
+# 1
+
 
 # -*- coding:utf-8 -*-
 class Solution:
@@ -27,11 +29,11 @@ class Solution:
                     l.append(matrix[k][hor_d])
                 hor_d -= 1
             elif iter % 4 == 2:
-                for k in reversed(range(hor_s, hor_d + 1)):
+                for k in reversed(range(hor_s, hor_d + 1)):  # reversed
                     l.append(matrix[ver_d][k])
                 ver_d -= 1
             else:
-                for k in reversed(range(ver_s, ver_d + 1)):
+                for k in reversed(range(ver_s, ver_d + 1)):  # reversed
                     l.append(matrix[k][hor_s])
                 hor_s += 1
             iter += 1

@@ -6,6 +6,7 @@
 """
 # 1
 
+
 class Solution:
     def IsPopOrder(self, pushV, popV):
         # 方法: 新建栈, 栈顶不等于pop则压入，等于弹出

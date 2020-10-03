@@ -6,6 +6,8 @@
 """
 # -*- coding:utf-8 -*-
 
+# 1
+
 
 class Solution:
     # 方法：哈希表

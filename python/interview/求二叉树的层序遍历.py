@@ -15,6 +15,9 @@
 [[1],[2,3],[4,5]]
 """
 
+# 1
+
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -38,7 +41,7 @@ class Solution:
                     next_level.append(node.left)
                 if node.right:
                     next_level.append(node.right)
-            res.append([n.val for n in level]) # 注意要保存的是节点的值
+            res.append([n.val for n in level])  # 注意要保存的是节点的值
             queue = next_level
         return res
 

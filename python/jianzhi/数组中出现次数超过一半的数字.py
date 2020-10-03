@@ -29,7 +29,7 @@ class Solution:
         if votes == 0:
             return 0
 
-        # 最后要加判断是否存在众数
+        # 最后要加判断是否存在众数[1, 1, 2, 2, 0]
         cnt = 0
         for i in numbers:
             if i == val:

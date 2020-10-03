@@ -9,6 +9,8 @@
 [true,true]
 """
 
+# 1
+
 
 class TreeNode:
     def __init__(self, x):

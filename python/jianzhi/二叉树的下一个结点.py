@@ -5,7 +5,7 @@
 注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
 """
 
-# 1
+# 1, 2
 
 class TreeLinkNode:
     def __init__(self, x):
