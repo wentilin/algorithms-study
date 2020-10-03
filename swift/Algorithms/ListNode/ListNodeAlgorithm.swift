@@ -54,10 +54,7 @@ class ListNodeAlgorithm {
     }
     
     /// 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则
-    static func merge(list1: ListNode?, list2: ListNode?) -> ListNode? {
-        guard list1 != nil else { return list2 }
-        guard list2 != nil else { return list1 }
-        
+    static func mergeTwoLists(list1: ListNode?, list2: ListNode?) -> ListNode? {
         var l1: ListNode? = list1
         var l2: ListNode? = list2
         
@@ -75,16 +72,64 @@ class ListNodeAlgorithm {
             current = current?.next
         }
         
-        if l1 != nil {
-            current?.next = l1
+        current?.next = l1 != nil ? l1 : l2
+        
+        return head.next
+    }
+    
+    /// 递归合并两个有序链表
+    static func mergeRecursive(list1: ListNode?, list2: ListNode?) -> ListNode? {
+        if list1 == nil {
+            return list2
+        }
+        if list2 == nil {
+            return list1
         }
         
-        if l2 != nil {
-            current?.next = l2
+        if list1!.val <= list2!.val {
+            list1?.next = mergeRecursive(list1: list1?.next, list2: list2)
+            return list1
+        } else {
+            list2?.next = mergeRecursive(list1: list1, list2: list2?.next)
+            return list2
+        }
+    }
+    
+    /**
+    题目：合并K个排序链表
+    解法：迭代合并，时间复杂度高
+    */
+    static func mergeKLists(_ lists: [ListNode?]) -> ListNode? {
+        let head = ListNode(val: 0)
+        var current: ListNode? = head
+        var pointers: [ListNode?] = lists
+        while true {
+            var min: ListNode = .init(val: Int.max)
+            var index: Int = 0
+            for (i, p) in pointers.enumerated() {
+                if let _p = p {
+                    if _p.val < min.val {
+                        min = _p
+                        index = i
+                    }
+                }
+            }
+            
+            if min.val != Int.max {
+                current?.next = min
+                current = current?.next
+                pointers[index] = pointers[index]?.next
+                if pointers[index] == nil {
+                    pointers.remove(at: index)
+                }
+            } else {
+                break
+            }
         }
         
         return head.next
     }
+    
     
     /// 输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，
     /// 另一个特殊指针random指向一个随机节点），请对此链表进行深拷贝，
@@ -255,5 +300,68 @@ extension ListNodeAlgorithm {
         }
         
         return head.next
+    }
+}
+
+extension ListNodeAlgorithm {
+    /**
+     题目：合并K个排序链表
+     解法：递归合并
+     */
+    static func mergeKListsRecursive(_ lists: [ListNode?]) -> ListNode? {
+        return mergeList(lists, lo: 0, hi: lists.count-1)
+    }
+
+    static func mergeList(_ lists: [ListNode?], lo: Int, hi: Int) -> ListNode? {
+        if (lo == hi) {
+            return lists[lo]
+        }
+
+        if (lo > hi) {
+            return nil
+        }
+
+        let mid = (hi - lo) / 2 + lo
+
+        return mergeTwoLists(list1: mergeList(lists, lo: lo, hi: mid), list2: mergeList(lists, lo: mid+1, hi: hi))
+    }
+}
+
+extension ListNodeAlgorithm {
+    /**
+     题目：旋转链表k次
+     描述：给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。
+     示例：输入: 0->1->2->NULL, k = 4
+          输出: 2->0->1->NULL
+          解释:
+          向右旋转 1 步: 2->0->1->NULL
+          向右旋转 2 步: 1->2->0->NULL
+          向右旋转 3 步: 0->1->2->NULL
+          向右旋转 4 步: 2->0->1->NULL
+     解法：将尾部next指向头部形成环，在从头部遍历，len - k % len - 1处是新的头部，前一个是新的尾部
+     */
+    static func rotateRight(_ head: ListNode?, _ k: Int) -> ListNode? {
+        if head?.next == nil {
+            return head
+        }
+
+        var tail: ListNode? = head
+        var len = 1
+        while tail?.next != nil {
+            tail = tail?.next
+            len += 1
+        }
+
+        tail?.next = head
+
+        var newHead: ListNode? = head?.next
+        tail = head
+        for _ in 0..<(len - k % len - 1) {
+            newHead = newHead?.next
+            tail = tail?.next
+        }
+
+        tail?.next = nil
+        return newHead
     }
 }

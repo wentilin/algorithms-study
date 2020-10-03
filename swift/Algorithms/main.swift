@@ -198,3 +198,6 @@ dic.insert("gogo" as NSObjectProtocol, forKey: "asdfsdf" as NSObjectProtocol)
 dic.insert("lala" as NSObjectProtocol, forKey: "hahaha" as NSObjectProtocol)
 print(dic.getObjectWith("asdfsdf" as NSObjectProtocol))
 print(dic.getObjectWith("hahaha" as NSObjectProtocol))
+
+
+_TreeTests.testTrieTree()

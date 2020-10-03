@@ -51,4 +51,64 @@ class SortAlgorithm {
         quickSort(array: &array, low: low, high: j-1)
         quickSort(array: &array, low: j+1, high: high)
     }
+    
+    /**
+     冒泡排序：通过不断交换把较大的数冒泡到右边
+     */
+    func bubbleSort(_ nums: inout [Int]) {
+        var flag = false
+        for i in 0..<nums.count {
+            for j in 0..<nums.count-i-1 {
+                if nums[j] > nums[j+1] {
+                    (nums[j], nums[j+1]) = (nums[j+1], nums[j])
+                    flag = false
+                } else {
+                    flag = true
+                }
+            }
+            
+            if flag {
+                break
+            }
+        }
+    }
+
+    /**
+     插入排序：左区间排好序，从右区间顺序插入数字到左区间
+     */
+    func insertSort(_ nums: inout [Int]) {
+        if nums.count < 1 {
+            return
+        }
+        for i in 1..<nums.count {
+            var j = i - 1
+            while j >= 0 {
+                if nums[j+1] < nums[j] {
+                    (nums[j], nums[j+1]) = (nums[j+1], nums[j])
+                } else {
+                    break
+                }
+                
+                j -= 1
+            }
+        }
+    }
+
+    /**
+     选择排序：右区间选择最小值插入到左区间边缘
+     */
+    func selectionSort(_ nums: inout [Int]) {
+        for i in 0..<nums.count {
+            var minValue = nums[i]
+            var minIndex = i
+            for j in i+1..<nums.count {
+                if nums[j] < minValue {
+                    minValue = nums[j]
+                    minIndex = j
+                }
+            }
+            
+            (nums[i], nums[minIndex]) = (nums[minIndex], nums[i])
+        }
+    }
 }
