@@ -29,13 +29,15 @@
 1 <= text1.length <= 1000
 1 <= text2.length <= 1000
 输入的字符串只含有小写英文字符。
+
+参考：https://labuladong.gitbook.io/algo/dong-tai-gui-hua-xi-lie/zui-chang-gong-gong-zi-xu-lie
 """
 
 
 class Solution:
-    # 方法：二维动态规划，dp[i][j]表示text1[1:i+1]和text2[1:j+1]的lcs的长度, index为0表示空字符""
-    # time: O(n)
-    # space: O(n)
+    # 方法：二维动态规划，dp[i][j]表示text1[0:i]和text2[0:j]的lcs的长度, i或j为0表示空字符""
+    # time: O(mn)
+    # space: O(mn)
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         m, n = len(text1), len(text2)
 
@@ -53,3 +55,4 @@ class Solution:
 
 if __name__ == '__main__':
     print(Solution().longestCommonSubsequence("bbbbace", "acedsdsdhjsd"))
+    print(Solution().longestCommonSubsequence("1AB2345CD","12345EF"))

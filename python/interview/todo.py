@@ -3,21 +3,9 @@ https://blog.csdn.net/abcdefg90876/article/details/106990794
 如何发现链表中的环
 Dropout实现
 a的n次方
-给两颗二叉树，判断B树是否为A的子树
 string转double
-################ 用rand5()实现rand3()[https://www.cnblogs.com/luxiaoxun/archive/2012/09/10/2678315.html]
-################ 判断对称数字 不能用字符串判断
-################ 最长不重复子串(滑动窗口法：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/hua-dong-chuang-kou-by-powcai/)
-################ 二叉树任意两个节点的最近公共祖先
-################ 两数相加
-################ topk-找第k大的数
-################ 二叉树的之字形遍历
 找出正整数数组中和=K的连续子数组数量
 
-最长回文字符串
-打家劫舍
-买卖股票
-最小编辑代价
 
 给定数组arr，设长度为n，输出arr的最长递增子序列。（如果有多个答案，请输出其中字典序最小的）
 
