@@ -26,7 +26,7 @@ class ListNode:
 
 
 class Solution:
-    # 方法1: 递归, 比较前一半的顺序和后一半倒序的链表是否相同
+    # 方法1: 递归, 比较"顺序链表"和"倒序链表"是否相同
     # time: O(n)
     # space: O(n)
     def traverse(self, head):

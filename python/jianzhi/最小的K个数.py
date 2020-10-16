@@ -40,7 +40,7 @@ class Solution1:
 
 # -*- coding:utf-8 -*-
 class Solution2:
-    # 方法: 最小堆
+    # 方法: 最小堆，自己实现堆
     # time: O(klogk + nlogk + klogk) -> O(nlogk)
     # space: O(k)
     def GetLeastNumbers_Solution(self, tinput, k):
@@ -86,7 +86,26 @@ class Solution2:
         return res[::-1]  # 倒序
 
 
+# -*- coding:utf-8 -*-
+class Solution3:
+    # 方法: 最小堆 用现成的堆接口
+    # time: O(klogk + nlogk + klogk) -> O(nlogk)
+    # space: O(k)
+    def GetLeastNumbers_Solution(self, tinput, k):
+        import heapq
+        heap = []
+        for i in tinput:
+            if len(heap) < k:
+                heap.append(i)
+            else:
+                heap = heapq.nlargest(k, heap)
+                if i < heap[0]:
+                    heap[0] = i
+        return heap[::-1]
+
+
 if __name__ == '__main__':
     tinput = [4,5,1,6,2,7,2,8]
-    print(Solution2().GetLeastNumbers_Solution(tinput, 2))
+    print(Solution2().GetLeastNumbers_Solution(tinput, 4))
+    print(Solution3().GetLeastNumbers_Solution(tinput, 4))
 
