@@ -42,7 +42,7 @@ class Palindrome1:
 class Palindrome2:
     # 方法2: 从中心扩展，P(i,j)←P(i+1,j−1)←P(i+2,j−2)←⋯←某一边界情况
     # 方法2: 如果两边的字母相同，我们就可以继续扩展，如果两边的字母不同，我们就可以停止扩展，因为在这之后的子串都不能是回文串了。
-    # time: O(n^2), 长度为1和2的回文中心分别有n和n-1个， 每个回文中心最多向外扩展O(n)次
+    # time: O(n^2), 长度为1和2的回文中心分别有n和n-1个，每个回文中心最多向外扩展O(n)次
     # space: O(1)
     def expand_from_center(self, A, left, right):
         while left >= 0 and right < len(A) and A[left] == A[right]:

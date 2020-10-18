@@ -8,7 +8,7 @@ class QuickSort:
 
         pivot = tinput[r]
         i, j = l, r - 1
-        while i <= j:  # i <= j 等号不能去掉，考虑[3,4]
+        while i <= j:  # i <= j 等号不能去掉，考虑[4,3]
             while i < r and tinput[i] <= pivot:
                 i += 1
             while j >= l and tinput[j] >= pivot:  # j >= l 等号不能去掉, 考虑[4,3], 死循环
