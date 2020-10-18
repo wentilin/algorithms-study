@@ -662,3 +662,67 @@ extension TreeAlgorithm {
         return vals
     }
 }
+
+extension TreeAlgorithm {
+    /**
+     题目：返回二叉树到叶节点最大路劲和
+     */
+    static func maxPathSum(_ root: TreeNode?) -> Int {
+        var sum = Int.min
+        _maxPathSum(root, sum: &sum)
+        return sum
+    }
+
+    @discardableResult
+    static func _maxPathSum(_ root: TreeNode?, sum: inout Int) -> Int {
+        if root == nil {
+            return 0
+        }
+
+        let left = max(_maxPathSum(root?.left, sum: &sum), 0)
+        let right = max(_maxPathSum(root?.right, sum: &sum), 0)
+        let newValue = root!.value + left + right
+        sum = max(sum, newValue)
+        
+        return root!.value + max(left, right)
+    }
+}
+
+extension TreeAlgorithm {
+    /**
+     题目：查找二叉查找树两个节点的最近公共节点
+     */
+    static func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) -> TreeNode? {
+        guard let root = root else {
+            return nil
+        }
+        
+        guard var p = p else {
+            return q
+        }
+        
+        guard var q = q else {
+            return p
+        }
+        
+        if root.value == p.value {
+            return root
+        }
+        
+        if root.value == q.value {
+            return q
+        }
+        
+        if p.value > q.value {
+            (p, q) = (q, p)
+        }
+        
+        if root.value > p.value && root.value < q.value {
+            return root
+        } else if root.value < p.value && root.value < q.value {
+            return lowestCommonAncestor(root.right, p, q)
+        } else {
+            return lowestCommonAncestor(root.left, p, q)
+        }
+    }
+}
