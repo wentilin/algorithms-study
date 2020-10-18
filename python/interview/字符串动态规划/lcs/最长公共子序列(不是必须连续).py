@@ -55,4 +55,4 @@ class Solution:
 
 if __name__ == '__main__':
     print(Solution().longestCommonSubsequence("bbbbace", "acedsdsdhjsd"))
-    print(Solution().longestCommonSubsequence("1AB2345CD","12345EF"))
+    print(Solution().longestCommonSubsequence("1AB2345CD", "12345EF"))

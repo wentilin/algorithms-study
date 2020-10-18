@@ -31,18 +31,16 @@ class Solution:
         if not root:
             return res
 
-        queue = [root]
-        while len(queue):
-            level = []
+        level = [root]
+        while level:
             next_level = []
-            for node in queue:
-                level.append(node)
+            for node in level:
                 if node.left:
                     next_level.append(node.left)
                 if node.right:
                     next_level.append(node.right)
             res.append([n.val for n in level])  # 注意要保存的是节点的值
-            queue = next_level
+            level = next_level
         return res
 
 

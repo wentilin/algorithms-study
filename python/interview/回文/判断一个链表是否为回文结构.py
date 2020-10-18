@@ -26,7 +26,7 @@ class ListNode:
 
 
 class Solution:
-    # 方法1: 递归, 比较前一半的顺序和后一半倒序的链表是否相同
+    # 方法1: 递归, 比较"顺序链表"和"倒序链表"是否相同
     # time: O(n)
     # space: O(n)
     def traverse(self, head):
@@ -66,7 +66,7 @@ class Solution:
             fast = fast.next.next
             slow = slow.next
 
-        if fast and slow.next: # slow.next主要为了解决长度为2的链表：1->2
+        if fast and slow.next: # slow.next主要为了解决长度为2的链表：1->2->None
             slow = slow.next
 
         # 1->2->2(slow)->1
@@ -74,6 +74,8 @@ class Solution:
         # 从slow开始反转链表, 并比较left和right是否一致
         left = head
         right = self.reverse(slow)
+        # 1->2->2(->None)<-1
+        # 1->2->3->2(->None)<-1
         while right and left:
             if left.val != right.val:
                 return False

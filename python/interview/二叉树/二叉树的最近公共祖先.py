@@ -57,6 +57,7 @@ class Solution1:
                 return q
             q = parent[q]
 
+        # 这时q为None
         return q
 
 
@@ -77,10 +78,8 @@ class Solution2:
         if not right:
             return left
 
+        # 最近公共祖先
         return root
-
-
-
 
 
 if __name__ == '__main__':

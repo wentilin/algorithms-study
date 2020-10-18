@@ -32,12 +32,12 @@ class Solution:
                 return True
 
             if root.left:
-                if root.val >= root.left.val:
+                if root.val > root.left.val:
                     return binary_search_tree_recur(root.left)
                 else:
                     return False
             if root.right:
-                if root.val <= root.right.val:
+                if root.val < root.right.val:
                     return binary_search_tree_recur(root.right)
                 else:
                     return False
@@ -50,28 +50,31 @@ class Solution:
 
             stack = []
             prev = None
-            while len(stack) or root:
-                if root:
+            while stack or root:
+                while root:
                     stack.append(root)
                     root = root.left
-                else:
-                    root = stack.pop()
-                    if prev and prev.val > root.val:
-                        return False
-                    prev = root
-                    root = root.right
+                
+                root = stack.pop()
+                # 中序，pop后比较
+                if prev and prev.val > root.val:
+                    print(prev.val, root.val)
+                    return False
+                prev = root
+                root = root.right
 
             return True
-
+        
+        # 完全二叉树(满二叉树可以缺一些index大的节点)
         def complete_binary_tree(root):
             if not root:
                 return True
 
-            queue = [root]
+            level = [root]
             leaf = False
-            while len(queue):
+            while level:
                 next_level = []
-                for n in queue:
+                for n in level:
                     if not n.left and n.right:
                         return False
 
@@ -86,7 +89,7 @@ class Solution:
                         next_level.append(n.left)
                     if n.right:
                         next_level.append(n.right)
-                queue = next_level
+                level = next_level
 
             return True
 
@@ -95,12 +98,14 @@ class Solution:
 
 if __name__ == '__main__':
     a1 = TreeNode(3)
-    a2 = TreeNode(2)
-    a3 = TreeNode(4)
-    a4 = TreeNode(5)
-    a5 = TreeNode(6)
-    a1.left = a2
-    a1.right = a3
-    # a3.left = a4
-    # a3.right = a5
+    a21 = TreeNode(1)
+    a22 = TreeNode(5)
+    a32 = TreeNode(2)
+    a33 = TreeNode(4)
+    a34 = TreeNode(6)
+    a1.left = a21
+    a1.right = a22
+    a21.right = a32
+    a22.left = a33
+    a22.right = a34
     print(Solution().judgeIt(a1))
