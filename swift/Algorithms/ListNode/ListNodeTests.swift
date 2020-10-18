@@ -33,7 +33,7 @@ extension ListNodeTests {
         let list1 = _buildList(from: [1, 2, 3, 4, 5])
         let list2 = _buildList(from: [1, 2, 3, 4, 5])
         
-        print("merge two list node: \(ListNodeAlgorithm.merge(list1: list1, list2: list2))")
+        print("merge two list node: \(ListNodeAlgorithm.mergeTwoLists(list1: list1, list2: list2))")
     }
     
     private static func _buildList(from array: [Int]) -> ListNode? {

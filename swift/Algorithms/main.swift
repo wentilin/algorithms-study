@@ -8,7 +8,7 @@
 
 import Foundation
 
-let cache = LRUCache(2)
+let cache = _LRUCache(2)
 
 print("LURCace start")
 print(cache.get(2))
