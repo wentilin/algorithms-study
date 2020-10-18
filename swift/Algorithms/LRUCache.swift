@@ -8,142 +8,83 @@
 
 import Foundation
 
-class _DoubleLinkedNode: Equatable {
-    var prev: _DoubleLinkedNode?
-    var next: _DoubleLinkedNode?
+class _DeListNode {
     var key: Int
-    var value: Int
+    var val: Int
+    var next: _DeListNode?
+    var prev: _DeListNode?
 
-    init(key: Int, value: Int) {
+    init(key: Int, val: Int) {
         self.key = key
-        self.value = value
-    }
-    
-    static func == (lhs: _DoubleLinkedNode, rhs: _DoubleLinkedNode) -> Bool {
-        return lhs.key == rhs.key && lhs.value == rhs.value
+        self.val = val
     }
 }
 
-extension _DoubleLinkedNode: CustomStringConvertible {
-    var description: String {
-        return "Node<\(key):\(value)>"
-    }
-}
+class CacheStorage {
+    var head: _DeListNode = .init(key: 0, val: 0)
+    var tail: _DeListNode = .init(key: 0, val: 0)
 
-class _LinkedCache {
-    private var head: _DoubleLinkedNode
-    private var tail: _DoubleLinkedNode
-    
     init() {
-        head = .init(key: 0, value: 0)
-        tail = .init(key: 0, value: 0)
-        
         head.next = tail
         tail.prev = head
     }
-    
-    func addNode(_ node: _DoubleLinkedNode) {
-        head.next?.prev = node
-        
+
+    func insert(_ node: _DeListNode) {
         node.next = head.next
-        node.prev = head
-        
+        head.next?.prev = node
         head.next = node
+        node.prev = head
     }
-    
-    func moveNodeToHead(_ node: _DoubleLinkedNode) {
-        remove(node)
-        addNode(node)
-    }
-    
-    func removeTail() -> _DoubleLinkedNode? {
-        guard let node = tail.prev, node != head else { return nil }
-        
-        remove(node)
-        
+
+    func removeTail() -> _DeListNode {
+        let node = tail.prev!
+        remove(tail.prev!)
         return node
     }
-    
-    private func remove(_ node: _DoubleLinkedNode) {
-        node.prev?.next = node.next
+
+    func remove(_ node: _DeListNode) {
         node.next?.prev = node.prev
-        
-        node.prev = nil
+        node.prev?.next = node.next
+
         node.next = nil
+        node.prev = nil
+    }
+
+    func moveToHead(_ node: _DeListNode) {
+        remove(node)
+        insert(node)
     }
 }
 
-extension _LinkedCache: CustomStringConvertible {
-    var description: String {
-        var items: [_DoubleLinkedNode] = []
-        var next = head.next
-        while let item = next, item != tail {
-            items.append(item)
-            next = next?.next
-        }
-        
-        return "\(items)"
-    }
-}
-
-class LRUCache {
-    let capacity: Int
-    
-    var count: Int {
-        return _count_
-    }
-    
-    private var storage: [Int: _DoubleLinkedNode]
-    
-    private let linkedCache: _LinkedCache = .init()
-    
+class _LRUCache {
+    private let storage: CacheStorage = .init()
+    private var buckets: [Int: _DeListNode] = [:]
+    private let capacity: Int
     init(_ capacity: Int) {
         self.capacity = capacity
-        self.storage = [:]
-
     }
     
-    @discardableResult
     func get(_ key: Int) -> Int {
-        guard let node = storage[key] else {
-            return -1
+        if let node = buckets[key] {
+            storage.moveToHead(node)
+            return node.val
         }
 
-        linkedCache.moveNodeToHead(node)
-
-        return node.value
+        return -1
     }
     
     func put(_ key: Int, _ value: Int) {
-        if let node = storage[key] {
-            node.value = value
-            linkedCache.moveNodeToHead(node)
+        if let node = buckets[key] {
+            node.val = value
+            storage.moveToHead(node)
         } else {
-            if _count_ >= capacity {
-                remove()
+            if buckets.count == capacity {
+                let node = storage.removeTail()
+                buckets.removeValue(forKey: node.key)
             }
-            
-            let node = _DoubleLinkedNode(key: key, value: value)
-            linkedCache.addNode(node)
-            storage[key] = node
-            
-            _count_ += 1
+            let node = _DeListNode(key: key, val: value)
+            storage.insert(node)
+            buckets[key] = node
         }
-    }
-
-    private func remove() {
-        if let node = linkedCache.removeTail() {
-            storage.removeValue(forKey: node.key)
-        }
-        
-        _count_ -= 1;
-    }
-    
-    private var _count_: Int = 0
-}
-
-extension LRUCache: CustomStringConvertible {
-    var description: String {
-        return "items:\(storage)\ncache:\(linkedCache)"
     }
 }
