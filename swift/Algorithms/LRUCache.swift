@@ -8,41 +8,45 @@
 
 import Foundation
 
-class _DeListNode {
-    var key: Int
-    var val: Int
+class _DeListNode<Key: Hashable, Value> {
+    var key: Key!
+    var val: Value!
     var next: _DeListNode?
     var prev: _DeListNode?
 
-    init(key: Int, val: Int) {
+    init(key: Key, val: Value) {
         self.key = key
         self.val = val
     }
+    
+    init() {
+        
+    }
 }
 
-class CacheStorage {
-    var head: _DeListNode = .init(key: 0, val: 0)
-    var tail: _DeListNode = .init(key: 0, val: 0)
+class CacheStorage<Key: Hashable, Value> {
+    var head: _DeListNode<Key, Value> = .init()
+    var tail: _DeListNode<Key, Value> = .init()
 
     init() {
         head.next = tail
         tail.prev = head
     }
 
-    func insert(_ node: _DeListNode) {
+    func insert(_ node: _DeListNode<Key, Value>) {
         node.next = head.next
         head.next?.prev = node
         head.next = node
         node.prev = head
     }
 
-    func removeTail() -> _DeListNode {
+    func removeTail() -> _DeListNode<Key, Value> {
         let node = tail.prev!
         remove(tail.prev!)
         return node
     }
 
-    func remove(_ node: _DeListNode) {
+    func remove(_ node: _DeListNode<Key, Value>) {
         node.next?.prev = node.prev
         node.prev?.next = node.next
 
@@ -50,30 +54,30 @@ class CacheStorage {
         node.prev = nil
     }
 
-    func moveToHead(_ node: _DeListNode) {
+    func moveToHead(_ node: _DeListNode<Key, Value>) {
         remove(node)
         insert(node)
     }
 }
 
-class _LRUCache {
-    private let storage: CacheStorage = .init()
-    private var buckets: [Int: _DeListNode] = [:]
+class _LRUCache<Key: Hashable, Value> {
+    private let storage: CacheStorage<Key, Value> = .init()
+    private var buckets: [Key: _DeListNode<Key, Value>] = [:]
     private let capacity: Int
     init(_ capacity: Int) {
         self.capacity = capacity
     }
     
-    func get(_ key: Int) -> Int {
+    func get(_ key: Key) -> Value? {
         if let node = buckets[key] {
             storage.moveToHead(node)
             return node.val
         }
 
-        return -1
+        return nil
     }
     
-    func put(_ key: Int, _ value: Int) {
+    func put(_ key: Key, _ value: Value) {
         if let node = buckets[key] {
             node.val = value
             storage.moveToHead(node)

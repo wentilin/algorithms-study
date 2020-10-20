@@ -8,18 +8,18 @@
 
 import Foundation
 
-let cache = _LRUCache(2)
+let cache = _LRUCache<Int, Int>(2)
 
 print("LURCace start")
-print(cache.get(2))
-print(cache.get(2))
+print(cache.get(2) ?? -1)
+print(cache.get(2) ?? -1)
 
 cache.put(2, 6)
-print(cache.get(1))
+print(cache.get(1) ?? -1)
 cache.put(1, 5)
 cache.put(1, 2)
-print(cache.get(1))
-print(cache.get(2))
+print(cache.get(1) ?? -1)
+print(cache.get(2) ?? -1)
 
 print(cache)
 
