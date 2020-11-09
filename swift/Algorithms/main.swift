@@ -201,3 +201,5 @@ print(dic.getObjectWith("hahaha" as NSObjectProtocol))
 
 
 _TreeTests.testTrieTree()
+
+_TreeTests.testAVLTree()

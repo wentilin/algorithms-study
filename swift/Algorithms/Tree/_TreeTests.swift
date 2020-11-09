@@ -241,3 +241,26 @@ extension _TreeTests {
         print("find trie: \(trie.find("afdc"))")
     }
 }
+
+
+extension _TreeTests {
+    static func testAVLTree() {
+        let tree = AVLTree<Int, String>()
+
+        tree.insert(key: 5, payload: "five")
+        print(tree)
+
+        tree.insert(key: 4, payload: "four")
+        print(tree)
+
+        tree.insert(key: 3, payload: "three")
+        print(tree)
+
+        tree.insert(key: 2, payload: "two")
+        print(tree)
+
+        tree.insert(key: 1, payload: "one")
+        print(tree)
+        print(tree.debugDescription)
+    }
+}

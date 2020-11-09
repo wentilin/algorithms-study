@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		542E0B52244D523200003C1D /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E0B51244D523200003C1D /* Queue.swift */; };
+		5437FA6A2558E39E0089CD2B /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5437FA692558E39E0089CD2B /* AVLTree.swift */; };
 		5440335324E53A1700549EF8 /* StringAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5440335224E53A1700549EF8 /* StringAlgorithm.swift */; };
 		5495C52724528F13002A1DF5 /* SearchAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5495C52624528F13002A1DF5 /* SearchAlgorithm.swift */; };
 		54F54BC624E397BD00EED7A8 /* ArrayAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F54BC524E397BC00EED7A8 /* ArrayAlgorithm.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		542E0B51244D523200003C1D /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		5437FA692558E39E0089CD2B /* AVLTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVLTree.swift; sourceTree = "<group>"; };
 		5440335224E53A1700549EF8 /* StringAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringAlgorithm.swift; sourceTree = "<group>"; };
 		5495C52624528F13002A1DF5 /* SearchAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAlgorithm.swift; sourceTree = "<group>"; };
 		54F54BC524E397BC00EED7A8 /* ArrayAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayAlgorithm.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				D703ECCF2470ED75003D4ABA /* TreeAlgorithm.swift */,
 				D703ECD12470ED80003D4ABA /* TreeNode.swift */,
 				D703ECD32470EEB4003D4ABA /* _TreeTests.swift */,
+				5437FA692558E39E0089CD2B /* AVLTree.swift */,
 			);
 			path = Tree;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D703ECCD246FE402003D4ABA /* ListNodeTests.swift in Sources */,
+				5437FA6A2558E39E0089CD2B /* AVLTree.swift in Sources */,
 				D728897B25248AC800035118 /* TrieTree.swift in Sources */,
 				D7461110248222740062DCAE /* PriorityQueue.swift in Sources */,
 				D7150AA6245C020B00849E70 /* MaxSumOfSubArray.swift in Sources */,
