@@ -148,6 +148,16 @@ extension AVLTree {
         balance(node: rotateRes?.parent)
     }
     
+    /**
+     RR型：左旋
+                7                           11
+               /    \                        /    \
+              3      11     ==>       7      16
+                 /    \                /    \       \
+                9      16           3      9      26
+                     \
+                     26
+     */
     @discardableResult
     fileprivate func rrRotate(node: Node) -> Node? {
         let parent: Node? = node.parent
@@ -172,6 +182,16 @@ extension AVLTree {
         return rChild
     }
     
+    /**
+     LL型：右旋
+                7                          7
+               /    \                      /    \
+              3      16     ==>     3       11
+                 /                            /   \
+                11                          9     16
+                /
+               9
+     */
     @discardableResult
     fileprivate func llRotate(node: Node) -> Node? {
         let parent: Node? = node.parent
@@ -196,6 +216,9 @@ extension AVLTree {
         return lChild
     }
     
+    /**
+     RL型：右旋再左旋
+     */
     @discardableResult
     fileprivate func rlRotate(node: Node) -> Node? {
         if let rChild = node.rightChild {
@@ -204,6 +227,9 @@ extension AVLTree {
         return rrRotate(node: node)
     }
     
+    /**
+     LR型：左旋再右旋
+     */
     @discardableResult
     fileprivate func lrRotate(node: Node) -> Node? {
         if let lChild = node.leftChild {
