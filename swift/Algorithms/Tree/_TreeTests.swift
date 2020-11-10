@@ -264,5 +264,15 @@ extension _TreeTests {
         print(tree.debugDescription)
         
         print(tree.search(key: 2))   // "two"
+        
+        tree.delete(key: 5)
+        print(tree)
+        tree.delete(key: 2)
+        print(tree)
+        tree.delete(key: 1)
+        print(tree)
+        tree.delete(key: 4)
+        print(tree)
+        tree.delete(key: 3)
     }
 }

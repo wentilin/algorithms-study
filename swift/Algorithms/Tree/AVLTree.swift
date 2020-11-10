@@ -49,11 +49,11 @@ class AVLNode<Key: Comparable, Payload> {
     }
     
     var isLeft: Bool {
-        return leftChild?.parent === self
+        return parent?.leftChild === self
     }
     
     var isRight: Bool {
-        return rightChild?.parent === self
+        return parent?.rightChild === self
     }
     
     var hasLeft: Bool {
@@ -170,9 +170,10 @@ extension AVLTree {
         node.rightChild = rlChild
         rChild?.parent = parent
         rChild?.leftChild = node
+        node.parent = rChild
         
         if let parent = parent {
-            if parent.rightChild == node {
+            if parent.rightChild === node {
                 parent.rightChild = rChild
             } else {
                 parent.leftChild = rChild
@@ -204,9 +205,10 @@ extension AVLTree {
         node.leftChild = lrChild
         lChild?.parent = parent
         lChild?.rightChild = node
+        node.parent = lChild
         
         if let parent = parent {
-            if parent.rightChild == node {
+            if parent.rightChild === node {
                 parent.rightChild = lChild
             } else {
                 parent.leftChild = lChild
@@ -266,20 +268,71 @@ extension AVLTree {
     }
     
     func search(key: Key) -> Payload? {
-        return search(key: key, node: root)
+        return search(key: key, node: root)?.payload
     }
     
-    private func search(key: Key, node: Node?) -> Payload? {
+    private func search(key: Key, node: Node?) -> Node? {
         guard let node = node else {
             return nil
         }
         
         if key == node.key {
-            return node.payload
+            return node
         } else if key < node.key {
             return search(key: key, node: node.leftChild)
         } else {
             return search(key: key, node: node.rightChild)
+        }
+    }
+}
+
+extension AVLNode {
+  public func minimum() -> AVLNode? {
+    return leftChild?.minimum() ?? self
+  }
+
+  public func maximum() -> AVLNode? {
+    return rightChild?.maximum() ?? self
+  }
+}
+
+// MARK: Delete
+extension AVLTree {
+    func delete(key: Key) {
+        if size == 1 {
+            root = nil
+            size -= 1
+        } else if let node = search(key: key, node: root) {
+            delete(node: node)
+            size -= 1
+        }
+    }
+    
+    private func delete(node: Node) {
+        if node.isLeaf {
+            if let parent = node.parent {
+                guard node.isLeft || node.isRight else {
+                    fatalError("Invalid node")
+                }
+                
+                if node.isLeft {
+                    parent.leftChild = nil
+                } else if node.isRight {
+                    parent.rightChild = nil
+                }
+                
+                balance(node: parent)
+            }
+        } else {
+            if let replacement = node.leftChild?.maximum(), replacement !== node {
+                node.key = replacement.key
+                node.payload = replacement.payload
+                delete(node: replacement)
+            } else if let replacement = node.rightChild?.minimum(), replacement !== node {
+                node.key = replacement.key
+                node.payload = replacement.payload
+                delete(node: replacement)
+            }
         }
     }
 }
