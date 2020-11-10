@@ -126,7 +126,7 @@ extension AVLTree {
         updateHeightUpwards(node: node.rightChild)
         
         let lrFactor = lrDifference(node: node)
-        var rotateRes: Node? = nil
+        var rotateRes: Node? = node
         if lrFactor > 1 {
             if lrDifference(node: node.leftChild) > 0 { // LL
                 rotateRes = llRotate(node: node)
@@ -145,7 +145,7 @@ extension AVLTree {
             root = node
         }
         
-        balance(node: rotateRes)
+        balance(node: rotateRes?.parent)
     }
     
     @discardableResult
@@ -217,7 +217,7 @@ extension AVLTree {
         if let node = node {
             let lHeight = node.leftChild?.height ?? 0
             let rHeight = node.rightChild?.height ?? 0
-            node.height = max(lHeight, rHeight)
+            node.height = max(lHeight, rHeight) + 1
             updateHeightUpwards(node: node.parent)
         }
     }
@@ -232,7 +232,7 @@ extension AVLTree {
 
 extension AVLNode: CustomDebugStringConvertible {
   public var debugDescription: String {
-    var s = "key: \(key), payload: \(payload), height: \(height)"
+    var s = "key: \(key), payload: \(String(describing: payload ?? nil)), height: \(height)"
     if let parent = parent {
       s += ", parent: \(parent.key)"
     }
