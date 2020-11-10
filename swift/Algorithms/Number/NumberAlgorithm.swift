@@ -176,6 +176,29 @@ extension NumberAlgorithm {
         
         return results
     }
+    
+    /**
+     滑动窗口法
+     */
+    static func findContinuousSequence_(for sum: Int) -> [[Int]]{
+        var results: [[Int]] = []
+        var l = 1
+        var r = 2
+        while l < r {
+            let target = (l + r) * (r - l + 1) / 2
+            if target == sum {
+                results.append(Array(l...r))
+                
+                l += 1
+            } else if target < sum {
+                r += 1
+            } else {
+                l += 1
+            }
+        }
+        
+        return results
+    }
 }
 
 extension NumberAlgorithm {
