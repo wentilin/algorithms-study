@@ -262,5 +262,7 @@ extension _TreeTests {
         tree.insert(key: 1, payload: "one")
         print(tree)
         print(tree.debugDescription)
+        
+        print(tree.search(key: 2))   // "two"
     }
 }

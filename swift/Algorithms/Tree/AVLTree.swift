@@ -84,6 +84,7 @@ class AVLTree<Key: Comparable, Payload> {
     init() { }
 }
 
+// MARK: Insert
 extension AVLTree {
     func insert(key: Key, payload: Payload? = nil) {
         if let root = root {
@@ -116,6 +117,7 @@ extension AVLTree {
     }
 }
 
+// MARK: Balance
 extension AVLTree {
     fileprivate func balance(node: Node?) {
         guard let node = node else {
@@ -253,6 +255,32 @@ extension AVLTree {
         let rHeight = node?.rightChild?.height ?? 0
         
         return lHeight - rHeight
+    }
+}
+
+// MARK: Search
+extension AVLTree {
+    subscript(key: Key) -> Payload? {
+        get { return search(key: key) }
+        set { insert(key: key, payload: newValue) }
+    }
+    
+    func search(key: Key) -> Payload? {
+        return search(key: key, node: root)
+    }
+    
+    private func search(key: Key, node: Node?) -> Payload? {
+        guard let node = node else {
+            return nil
+        }
+        
+        if key == node.key {
+            return node.payload
+        } else if key < node.key {
+            return search(key: key, node: node.leftChild)
+        } else {
+            return search(key: key, node: node.rightChild)
+        }
     }
 }
 
