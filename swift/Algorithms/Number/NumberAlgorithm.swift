@@ -23,12 +23,15 @@ class NumberAlgorithm {
             return 1
         }
         
-        var res = base
-        var exp = abs(exponent)
+        if exponent == 1 {
+            return base
+        }
         
-        while exp > 1 {
+        var res = pow(base: base, exponent: abs(exponent) / 2)
+        res *= res
+        
+        if exponent % 2 != 0 {
             res *= base
-            exp -= 1
         }
         
         if exponent < 0 {

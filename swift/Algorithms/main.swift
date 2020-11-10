@@ -69,8 +69,8 @@ print("QuickSort: \(arrayToSort)")
 
 print("DuplicateNumber: \(ArrayAlgorithm.duplicateNumber(at: [0, 3, 2, 4, 1, 2]) ?? -1)")
 
-let base: Double = -2
-let exponent: Int = -3
+let base: Double = 2
+let exponent: Int = 6
 print("PowAlgorithm.pow(\(base), \(exponent))=\(NumberAlgorithm.pow(base: base, exponent: exponent))")
 
 
